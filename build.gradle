@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+task wrapper (type: Wrapper) { gradleVersion = 3.1 }
+
+repositories { mavenCentral() }
+
+dependencies {
+  compile 'com.google.code.findbugs:jsr305:3.0.0'
+  compile 'com.google.guava:guava:19.0'
+
+  testCompile 'org.assertj:assertj-core:3.4.1'
+  testCompile 'junit:junit:4.12'
+}
+
+tasks.withType(Test) {
+  beforeTest { TestDescriptor descriptor ->
+    logger.lifecycle('Running test: ' + descriptor.name + '(' + descriptor.className + ')')
+  }
+}
