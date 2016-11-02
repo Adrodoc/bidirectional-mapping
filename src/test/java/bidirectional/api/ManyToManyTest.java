@@ -77,6 +77,19 @@ public abstract class ManyToManyTest {
   }
 
   @Test
+  public void test_addMany__Mit_sich_selbst() {
+    // given:
+    ManyToMany a = newManyToMany();
+
+    // when:
+    boolean result = a.addMany(a);
+
+    // then:
+    assertThat(result).isTrue();
+    assertThat(a.getManys()).containsExactlyInAnyOrder(a);
+  }
+
+  @Test
   public void test_removeMany() {
     // given:
     ManyToMany a = newManyToMany();
@@ -141,6 +154,20 @@ public abstract class ManyToManyTest {
     // then:
     assertThat(actual).isExactlyInstanceOf(NullPointerException.class).hasMessage("many == null!");
     assertThat(many.getManys()).isEmpty();
+  }
+
+  @Test
+  public void test_removeMany__Mit_sich_selbst() {
+    // given:
+    ManyToMany a = newManyToMany();
+    a.addMany(a);
+
+    // when:
+    boolean result = a.removeMany(a);
+
+    // then:
+    assertThat(result).isTrue();
+    assertThat(a.getManys()).isEmpty();
   }
 
   @Test

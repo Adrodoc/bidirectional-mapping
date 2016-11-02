@@ -13,17 +13,12 @@ public class OneToOneBasicImpl implements OneToOne {
   }
 
   @Override
-  public boolean setOne(@Nullable OneToOne one) {
-    if (this.one == one)
-      return false;
+  public boolean setOne(@Nullable OneToOne otherOne) {
+    if (this.one == otherOne) return false;
     OneToOne oldOne = this.one;
-    this.one = one;
-    if (oldOne != null) {
-      oldOne.setOne(null);
-    }
-    if (one != null) {
-      one.setOne(this);
-    }
+    this.one = otherOne;
+    if (oldOne != null) oldOne.setOne(null);
+    if (otherOne != null) otherOne.setOne(this);
     return true;
   }
 }

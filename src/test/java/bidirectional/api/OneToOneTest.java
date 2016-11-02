@@ -85,4 +85,31 @@ public abstract class OneToOneTest {
     assertThat(a.getOne()).isNull();
   }
 
+  @Test
+  public void test_setOne__Mit_sich_selbst() {
+    // given:
+    OneToOne a = newOneToOne();
+
+    // when:
+    boolean result = a.setOne(a);
+
+    // then:
+    assertThat(result).isTrue();
+    assertThat(a.getOne()).isSameAs(a);
+  }
+
+  @Test
+  public void test_setOne__Sich_selbst_entfernen() {
+    // given:
+    OneToOne a = newOneToOne();
+    a.setOne(a);
+
+    // when:
+    boolean result = a.setOne(null);
+
+    // then:
+    assertThat(result).isTrue();
+    assertThat(a.getOne()).isNull();
+  }
+
 }

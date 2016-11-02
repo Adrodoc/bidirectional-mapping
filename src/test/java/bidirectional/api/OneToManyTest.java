@@ -22,7 +22,7 @@ public abstract class OneToManyTest {
 
     // then:
     assertThat(result).isTrue();
-    assertThat(one.getManys()).containsExactly(many).hasSize(1);
+    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
     assertThat(many.getOne()).isSameAs(one);
   }
 
@@ -38,7 +38,7 @@ public abstract class OneToManyTest {
 
     // then:
     assertThat(result).isFalse();
-    assertThat(one.getManys()).containsExactly(many).hasSize(1);
+    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
     assertThat(many.getOne()).isSameAs(one);
   }
 
@@ -56,7 +56,7 @@ public abstract class OneToManyTest {
     // then:
     assertThat(result).isTrue();
     assertThat(oldOne.getManys()).isEmpty();
-    assertThat(newOne.getManys()).containsExactly(many).hasSize(1);
+    assertThat(newOne.getManys()).containsExactlyInAnyOrder(many);
     assertThat(many.getOne()).isSameAs(newOne);
   }
 
@@ -123,7 +123,7 @@ public abstract class OneToManyTest {
     // then:
     assertThat(result).isFalse();
     assertThat(one.getManys()).isEmpty();
-    assertThat(other.getManys()).containsExactly(many).hasSize(1);
+    assertThat(other.getManys()).containsExactlyInAnyOrder(many);
     assertThat(many.getOne()).isSameAs(other);
   }
 
