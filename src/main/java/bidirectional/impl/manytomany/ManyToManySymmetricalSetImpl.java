@@ -1,4 +1,4 @@
-package bidirectional.impl.set;
+package bidirectional.impl.manytomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -6,32 +6,31 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
-import bidirectional.api.ManyToOne;
-import bidirectional.api.OneToMany;
+import bidirectional.api.ManyToMany;
 
-public class OneToManySetImpl implements OneToMany {
-  private Collection<ManyToOne> manys = new HashSet<>();
+public class ManyToManySymmetricalSetImpl implements ManyToMany {
+  private Collection<ManyToMany> manys = new HashSet<>();
 
   @Override
-  public Collection<ManyToOne> getManys() {
+  public Collection<ManyToMany> getManys() {
     return Collections.unmodifiableCollection(manys);
   }
 
   @Override
-  public boolean addMany(ManyToOne many) {
+  public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
     if (manys.add(many)) {
-      many.setOne(this);
+      many.addMany(this);
       return true;
     }
     return false;
   }
 
   @Override
-  public boolean removeMany(ManyToOne many) {
+  public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
     if (manys.remove(many)) {
-      many.setOne(null);
+      many.removeMany(this);
       return true;
     }
     return false;

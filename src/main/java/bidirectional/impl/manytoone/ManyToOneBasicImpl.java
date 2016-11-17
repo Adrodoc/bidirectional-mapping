@@ -1,4 +1,4 @@
-package bidirectional.impl.basic;
+package bidirectional.impl.manytoone;
 
 import javax.annotation.Nullable;
 

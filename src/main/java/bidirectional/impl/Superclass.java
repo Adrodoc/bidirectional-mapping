@@ -1,4 +1,4 @@
-package bidirectional.impl.list;
+package bidirectional.impl;
 
 public abstract class Superclass {
   private boolean pendingRelation;

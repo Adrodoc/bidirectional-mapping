@@ -1,16 +1,16 @@
-package bidirectional.impl.set;
+package bidirectional.impl.manytomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 
 import bidirectional.api.ManyToMany;
-import bidirectional.impl.list.Superclass;
+import bidirectional.impl.Superclass;
 
-public class ManyToManySetImpl extends Superclass implements ManyToMany {
-  private Collection<ManyToMany> manys = new HashSet<>();
+public class ManyToManyListImpl extends Superclass implements ManyToMany {
+  private Collection<ManyToMany> manys = new ArrayList<>();
 
   @Override
   public Collection<ManyToMany> getManys() {
@@ -20,11 +20,11 @@ public class ManyToManySetImpl extends Superclass implements ManyToMany {
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) return false;
+    if (many.getManys().contains(this)) return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.addMany(ManyToManySetImpl.this);
+        many.addMany(ManyToManyListImpl.this);
         manys.add(many);
       }
     });
@@ -34,11 +34,11 @@ public class ManyToManySetImpl extends Superclass implements ManyToMany {
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) return false;
+    if (!many.getManys().contains(this)) return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.removeMany(ManyToManySetImpl.this);
+        many.removeMany(ManyToManyListImpl.this);
         manys.remove(many);
       }
     });

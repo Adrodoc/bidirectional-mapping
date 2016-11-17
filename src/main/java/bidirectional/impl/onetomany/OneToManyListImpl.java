@@ -1,4 +1,4 @@
-package bidirectional.impl.list;
+package bidirectional.impl.onetomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -6,24 +6,27 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import bidirectional.api.ManyToMany;
+import bidirectional.api.ManyToOne;
+import bidirectional.api.OneToMany;
+import bidirectional.impl.Superclass;
 
-public class ManyToManyListImpl extends Superclass implements ManyToMany {
-  private Collection<ManyToMany> manys = new ArrayList<>();
+public class OneToManyListImpl extends Superclass implements OneToMany {
+  private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override
-  public Collection<ManyToMany> getManys() {
+  public Collection<ManyToOne> getManys() {
     return Collections.unmodifiableCollection(manys);
   }
 
   @Override
-  public boolean addMany(ManyToMany many) {
+  public boolean addMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (many.getManys().contains(this)) return false;
+    if (this == many.getOne())
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.addMany(ManyToManyListImpl.this);
+        many.setOne(OneToManyListImpl.this);
         manys.add(many);
       }
     });
@@ -31,13 +34,14 @@ public class ManyToManyListImpl extends Superclass implements ManyToMany {
   }
 
   @Override
-  public boolean removeMany(ManyToMany many) {
+  public boolean removeMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (!many.getManys().contains(this)) return false;
+    if (this != many.getOne())
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.removeMany(ManyToManyListImpl.this);
+        many.setOne(null);
         manys.remove(many);
       }
     });

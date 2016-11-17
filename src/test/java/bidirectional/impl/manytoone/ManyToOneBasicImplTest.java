@@ -1,4 +1,4 @@
-package bidirectional.impl.basic;
+package bidirectional.impl.manytoone;
 
 import java.util.Arrays;
 
@@ -6,9 +6,10 @@ import org.junit.runners.Parameterized.Parameters;
 
 import bidirectional.api.OneToMany;
 import bidirectional.api.ParameterizedManyToOneTest;
-import bidirectional.impl.list.OneToManyListContainsImpl;
-import bidirectional.impl.list.OneToManyListImpl;
-import bidirectional.impl.set.OneToManySetImpl;
+import bidirectional.impl.manytoone.ManyToOneBasicImpl;
+import bidirectional.impl.onetomany.OneToManyListContainsImpl;
+import bidirectional.impl.onetomany.OneToManyListImpl;
+import bidirectional.impl.onetomany.OneToManySetImpl;
 
 public class ManyToOneBasicImplTest extends ParameterizedManyToOneTest<ManyToOneBasicImpl> {
   @Parameters(name = "{0}")

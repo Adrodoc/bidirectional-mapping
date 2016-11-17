@@ -1,16 +1,16 @@
-package bidirectional.impl.list;
+package bidirectional.impl.onetomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 
 import bidirectional.api.ManyToOne;
 import bidirectional.api.OneToMany;
 
-public class OneToManyListContainsImpl implements OneToMany {
-  private Collection<ManyToOne> manys = new ArrayList<>();
+public class OneToManySetImpl implements OneToMany {
+  private Collection<ManyToOne> manys = new HashSet<>();
 
   @Override
   public Collection<ManyToOne> getManys() {
@@ -20,8 +20,7 @@ public class OneToManyListContainsImpl implements OneToMany {
   @Override
   public boolean addMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) {
-      manys.add(many);
+    if (manys.add(many)) {
       many.setOne(this);
       return true;
     }
@@ -31,8 +30,7 @@ public class OneToManyListContainsImpl implements OneToMany {
   @Override
   public boolean removeMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) {
-      manys.remove(many);
+    if (manys.remove(many)) {
       many.setOne(null);
       return true;
     }

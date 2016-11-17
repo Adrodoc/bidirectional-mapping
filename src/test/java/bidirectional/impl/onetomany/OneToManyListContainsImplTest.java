@@ -1,4 +1,4 @@
-package bidirectional.impl.set;
+package bidirectional.impl.onetomany;
 
 import java.util.Arrays;
 
@@ -6,9 +6,10 @@ import org.junit.runners.Parameterized.Parameters;
 
 import bidirectional.api.ManyToOne;
 import bidirectional.api.ParameterizedOneToManyTest;
-import bidirectional.impl.basic.ManyToOneBasicImpl;
+import bidirectional.impl.manytoone.ManyToOneBasicImpl;
+import bidirectional.impl.onetomany.OneToManyListContainsImpl;
 
-public class OneToManySetImplTest extends ParameterizedOneToManyTest<OneToManySetImpl> {
+public class OneToManyListContainsImplTest extends ParameterizedOneToManyTest<OneToManyListContainsImpl> {
   @Parameters(name = "{0}")
   public static Iterable<Class<? extends ManyToOne>> supportedInverseClasses() {
     return Arrays.asList(//
