@@ -9,7 +9,8 @@ public class ReflectionUtils {
     try {
       Constructor<T> constructor = cls.getConstructor();
       return constructor.newInstance();
-    } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException ex) {
+    } catch (NoSuchMethodException | InstantiationException | IllegalAccessException
+        | InvocationTargetException ex) {
       throw new UndeclaredThrowableException(ex);
     }
   }

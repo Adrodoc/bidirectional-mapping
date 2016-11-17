@@ -117,7 +117,8 @@ public class IdentityHashSet<E> extends AbstractSet<E> implements Set<E>, Serial
     return super.addAll(c);
   }
 
-  private void readObject(java.io.ObjectInputStream stream) throws IOException, ClassNotFoundException {
+  private void readObject(java.io.ObjectInputStream stream)
+      throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     s = m.keySet();
   }

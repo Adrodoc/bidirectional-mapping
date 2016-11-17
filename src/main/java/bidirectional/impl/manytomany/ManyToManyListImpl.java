@@ -12,13 +12,15 @@ import bidirectional.api.ManyToMany;
 import bidirectional.impl.Superclass;
 
 /**
- * Die {@link ManyToManyListImpl} ist eine {@link List} basierte Implementierung einer {@link ManyToMany} Relation.
+ * Die {@link ManyToManyListImpl} ist eine {@link List} basierte Implementierung einer
+ * {@link ManyToMany} Relation.
  * <p>
- * Diese Implementierung ist zwar symmetrisch, d.h. beide Seiten einer Relation können diese Implementierung theoretisch
- * nutzen, in diesem Fall wird aber keine {@link LazyInstatiation} unterstützt.
+ * Diese Implementierung ist zwar symmetrisch, d.h. beide Seiten einer Relation können diese
+ * Implementierung theoretisch nutzen, in diesem Fall wird aber keine {@link LazyInstatiation}
+ * unterstützt.
  * <p>
- * Diese Implementierung unterstützt {@link LazyInstatiation}, wenn nicht beide Seiten einer Relation diese
- * Implementierung nutzen.
+ * Diese Implementierung unterstützt {@link LazyInstatiation}, wenn nicht beide Seiten einer
+ * Relation diese Implementierung nutzen.
  *
  * @author uffmanna
  */
@@ -33,7 +35,8 @@ public class ManyToManyListImpl extends Superclass implements ManyToMany, LazyIn
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (many.getManys().contains(this)) return false;
+    if (many.getManys().contains(this))
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
@@ -47,7 +50,8 @@ public class ManyToManyListImpl extends Superclass implements ManyToMany, LazyIn
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!many.getManys().contains(this)) return false;
+    if (!many.getManys().contains(this))
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {

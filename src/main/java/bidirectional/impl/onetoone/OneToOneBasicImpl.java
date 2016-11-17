@@ -7,7 +7,8 @@ import bidirectional.api.OneToOne;
 /**
  * Die {@link OneToOneBasicImpl} ist einfache Implementierung einer {@link OneToOne} Relation.
  * <p>
- * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese Implementierung nutzen.
+ * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
+ * Implementierung nutzen.
  *
  * @author uffmanna
  */
@@ -21,11 +22,14 @@ public class OneToOneBasicImpl implements OneToOne {
 
   @Override
   public boolean setOne(@Nullable OneToOne otherOne) {
-    if (this.one == otherOne) return false;
+    if (this.one == otherOne)
+      return false;
     OneToOne oldOne = this.one;
     this.one = otherOne;
-    if (oldOne != null) oldOne.setOne(null);
-    if (otherOne != null) otherOne.setOne(this);
+    if (oldOne != null)
+      oldOne.setOne(null);
+    if (otherOne != null)
+      otherOne.setOne(this);
     return true;
   }
 }

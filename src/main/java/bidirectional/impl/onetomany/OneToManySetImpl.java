@@ -16,10 +16,11 @@ import bidirectional.identityhashset.IdentityHashSet;
 import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 
 /**
- * Die {@link OneToManySetImpl} ist eine {@link Set} basierte Implementierung einer {@link OneToMany} Relation.
+ * Die {@link OneToManySetImpl} ist eine {@link Set} basierte Implementierung einer
+ * {@link OneToMany} Relation.
  *
- * Dies ist eine schnellere Variante der {@link OneToManyListContainsImpl}, die verwendet werden kann, wenn keine
- * {@link LazyInstatiation} benötigt wird.
+ * Dies ist eine schnellere Variante der {@link OneToManyListContainsImpl}, die verwendet werden
+ * kann, wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
  *

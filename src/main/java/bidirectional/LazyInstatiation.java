@@ -9,22 +9,25 @@ import bidirectional.api.ManyToMany;
 import bidirectional.api.OneToMany;
 
 /**
- * Marker Interface für Implementierungen, die <a href="https://en.wikipedia.org/wiki/Lazy_initialization">Lazy
- * Instatiation</a> unterstützen. Lazy Instatiation kann von Eclipselink als Performance Optimierung bei
- * <a href="http://www.eclipse.org/eclipselink/documentation/2.6/concepts/mappingintro002.htm#CEGGCCGA">Transparent
- * Indirection</a> in {@link OneToMany} und {@link ManyToMany} Relationen eingesetzt werden, <a href=
+ * Marker Interface für Implementierungen, die
+ * <a href="https://en.wikipedia.org/wiki/Lazy_initialization">Lazy Instatiation</a> unterstützen.
+ * Lazy Instatiation kann von Eclipselink als Performance Optimierung bei <a href=
+ * "http://www.eclipse.org/eclipselink/documentation/2.6/concepts/mappingintro002.htm#CEGGCCGA">Transparent
+ * Indirection</a> in {@link OneToMany} und {@link ManyToMany} Relationen eingesetzt werden,
+ * <a href=
  * "http://www.eclipse.org/eclipselink/api/2.6/org/eclipse/persistence/mappings/CollectionMapping.html#setUseLazyInstantiationForIndirectCollection%28java.lang.Boolean%29">
  * dies ist jedoch nur bei IndirectList der default</a>: <blockquote cite=
  * "http://www.eclipse.org/eclipselink/api/2.6/org/eclipse/persistence/mappings/CollectionMapping.html#setUseLazyInstantiationForIndirectCollection%28java.lang.Boolean%29">
- * IndirectList and IndirectSet can be configured not to instantiate the list from the database when you add and remove
- * from them. IndirectList defaults to this behavior. When Set to true, the collection associated with this
- * TransparentIndirection will be setup so as not to instantiate for adds and removes. The weakness of this setting for
- * an IndirectSet is that when the set is not instantiated, if a duplicate element is added, it will not be detected
- * until commit time. </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten keine
+ * IndirectList and IndirectSet can be configured not to instantiate the list from the database when
+ * you add and remove from them. IndirectList defaults to this behavior. When Set to true, the
+ * collection associated with this TransparentIndirection will be setup so as not to instantiate for
+ * adds and removes. The weakness of this setting for an IndirectSet is that when the set is not
+ * instantiated, if a duplicate element is added, it will not be detected until commit time.
+ * </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten keine
  * {@link Set}s verwenden, da sonst ein SessionCustomizer verwendet werden muss.
  * <p>
- * Damit eine Implementierung Lazy Instatiation von Eclipselink unterstützen kann, darf sie in den add und remove
- * Methoden folgende Methoden der {@link Collection} NICHT nutzen:
+ * Damit eine Implementierung Lazy Instatiation von Eclipselink unterstützen kann, darf sie in den
+ * add und remove Methoden folgende Methoden der {@link Collection} NICHT nutzen:
  * <ul>
  * <li>{@link List#add(int, Object)}
  * <li>{@link List#addAll(int, Collection)}
@@ -65,4 +68,5 @@ import bidirectional.api.OneToMany;
  *
  * @author uffmanna
  */
-public interface LazyInstatiation {}
+public interface LazyInstatiation {
+}

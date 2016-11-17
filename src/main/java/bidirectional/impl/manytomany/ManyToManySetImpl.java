@@ -16,12 +16,14 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 import bidirectional.impl.Superclass;
 
 /**
- * Die {@link ManyToManySetImpl} ist eine {@link Set} basierte Implementierung einer {@link ManyToMany} Relation.
+ * Die {@link ManyToManySetImpl} ist eine {@link Set} basierte Implementierung einer
+ * {@link ManyToMany} Relation.
  * <p>
- * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese Implementierung nutzen.
+ * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
+ * Implementierung nutzen.
  * <p>
- * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück zur
- * {@link ManyToManyListImpl} eingesetzt werden.
+ * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
+ * zur {@link ManyToManyListImpl} eingesetzt werden.
  *
  * @author uffmanna
  */
@@ -37,7 +39,8 @@ public class ManyToManySetImpl extends Superclass implements ManyToMany, Require
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) return false;
+    if (manys.contains(many))
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
@@ -51,7 +54,8 @@ public class ManyToManySetImpl extends Superclass implements ManyToMany, Require
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) return false;
+    if (!manys.contains(many))
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {

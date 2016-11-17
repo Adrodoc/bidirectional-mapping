@@ -15,13 +15,14 @@ import bidirectional.identityhashset.IdentityHashSet;
 import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 
 /**
- * Die {@link ManyToManySymmetricalSetImpl} ist eine {@link Set} basierte Implementierung einer {@link ManyToMany}
- * Relation.
+ * Die {@link ManyToManySymmetricalSetImpl} ist eine {@link Set} basierte Implementierung einer
+ * {@link ManyToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link ManyToManySetImpl}, die verwendet werden kann, wenn keine
- * {@link LazyInstatiation} benötigt wird.
+ * Dies ist eine vereinfachte Variante der {@link ManyToManySetImpl}, die verwendet werden kann,
+ * wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
- * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese Implementierung nutzen.
+ * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
+ * Implementierung nutzen.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
  *

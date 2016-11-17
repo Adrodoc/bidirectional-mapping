@@ -12,11 +12,11 @@ import bidirectional.api.ManyToOne;
 import bidirectional.api.OneToMany;
 
 /**
- * Die {@link OneToManyListContainsImpl} ist eine {@link List} basierte Implementierung einer {@link OneToMany}
- * Relation.
+ * Die {@link OneToManyListContainsImpl} ist eine {@link List} basierte Implementierung einer
+ * {@link OneToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link OneToManyListImpl}, die verwendet werden kann, wenn keine
- * {@link LazyInstatiation} benötigt wird.
+ * Dies ist eine vereinfachte Variante der {@link OneToManyListImpl}, die verwendet werden kann,
+ * wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
  *

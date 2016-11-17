@@ -14,8 +14,8 @@ import org.eclipse.persistence.descriptors.ClassDescriptor;
 import org.eclipse.persistence.mappings.CollectionMapping;
 
 /**
- * Eclipselink Customizer für Jpa-Beans, der sicherstellt, dass {@link IdentityHashSet}s für Relationen auch im
- * LAZY-Mode verwendet werden können.
+ * Eclipselink Customizer für Jpa-Beans, der sicherstellt, dass {@link IdentityHashSet}s für
+ * Relationen auch im LAZY-Mode verwendet werden können.
  */
 public class LazyIdentityHashSetEnabler implements DescriptorCustomizer {
 
@@ -25,14 +25,15 @@ public class LazyIdentityHashSetEnabler implements DescriptorCustomizer {
   }
 
   /**
-   * Legt fest, dass Eclipselink für alle {@link IdentityHashSet}-basierten Relationen des (durch den Descriptor)
-   * gegebenen JPA-Beans ein {@link IndirectIdentityHashSet} verwenden soll.
+   * Legt fest, dass Eclipselink für alle {@link IdentityHashSet}-basierten Relationen des (durch
+   * den Descriptor) gegebenen JPA-Beans ein {@link IndirectIdentityHashSet} verwenden soll.
    *
    * @param descriptor
    */
   private void useIndirectIdentityHashSetForRelations(ClassDescriptor descriptor) {
     Object jpaBean = descriptor.getInstantiationPolicy().buildNewInstance();
-    Iterable<String> relationFieldNames = getIdentityHashSetRelations((Class<?>) descriptor.getJavaClass(), jpaBean);
+    Iterable<String> relationFieldNames =
+        getIdentityHashSetRelations((Class<?>) descriptor.getJavaClass(), jpaBean);
     for (String name : relationFieldNames) {
       CollectionMapping x = ((CollectionMapping) descriptor.getMappingForAttributeName(name));
       x.useTransparentCollection();
@@ -40,11 +41,13 @@ public class LazyIdentityHashSetEnabler implements DescriptorCustomizer {
     }
   }
 
-  public static Iterable<String> getIdentityHashSetRelations(Class<?> jpaBeanClass, Object jpaBean) {
+  public static Iterable<String> getIdentityHashSetRelations(Class<?> jpaBeanClass,
+      Object jpaBean) {
     Set<String> result = new HashSet<String>();
     Set<Field> fields = getFields(jpaBeanClass);
     for (Field field : fields) {
-      if (field.getAnnotation(OneToMany.class) != null || field.getAnnotation(ManyToMany.class) != null) {
+      if (field.getAnnotation(OneToMany.class) != null
+          || field.getAnnotation(ManyToMany.class) != null) {
         Object value = getValue(jpaBean, field);
         if (value instanceof IdentityHashSet) {
           result.add(field.getName());

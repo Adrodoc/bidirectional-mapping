@@ -11,7 +11,8 @@ import bidirectional.impl.onetomany.OneToManyListImpl;
 
 public class OneToManyListImplTest extends ParameterizedOneToManyTest<OneToManyListImpl> {
   /**
-   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung unterstützt werden.
+   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
+   * unterstützt werden.
    *
    * @return alle unterstützten Gegenklassen
    */

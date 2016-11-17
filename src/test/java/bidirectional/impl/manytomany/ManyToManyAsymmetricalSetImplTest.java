@@ -7,9 +7,11 @@ import org.junit.runners.Parameterized.Parameters;
 import bidirectional.api.ManyToMany;
 import bidirectional.api.ParameterizedManyToManyTest;
 
-public class ManyToManyAsymmetricalSetImplTest extends ParameterizedManyToManyTest<ManyToManyAsymmetricalSetImpl> {
+public class ManyToManyAsymmetricalSetImplTest
+    extends ParameterizedManyToManyTest<ManyToManyAsymmetricalSetImpl> {
   /**
-   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung unterstützt werden.
+   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
+   * unterstützt werden.
    *
    * @return alle unterstützten Gegenklassen
    */

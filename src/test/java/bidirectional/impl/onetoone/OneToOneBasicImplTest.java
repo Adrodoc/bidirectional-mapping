@@ -9,7 +9,8 @@ import bidirectional.api.ParameterizedOneToOneTest;
 
 public class OneToOneBasicImplTest extends ParameterizedOneToOneTest<OneToOneBasicImpl> {
   /**
-   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung unterstützt werden.
+   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
+   * unterstützt werden.
    *
    * @return alle unterstützten Gegenklassen
    */

@@ -22,9 +22,12 @@ public class ManyToOneBasicImpl implements ManyToOne {
 
   @Override
   public boolean setOne(@Nullable OneToMany otherOne) {
-    if (this.one == otherOne) return false;
-    if (this.one != null) this.one.removeMany(this);
-    if (otherOne != null) otherOne.addMany(this);
+    if (this.one == otherOne)
+      return false;
+    if (this.one != null)
+      this.one.removeMany(this);
+    if (otherOne != null)
+      otherOne.addMany(this);
     this.one = otherOne;
     return true;
   }

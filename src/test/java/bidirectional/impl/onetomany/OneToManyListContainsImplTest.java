@@ -9,9 +9,11 @@ import bidirectional.api.ParameterizedOneToManyTest;
 import bidirectional.impl.manytoone.ManyToOneBasicImpl;
 import bidirectional.impl.onetomany.OneToManyListContainsImpl;
 
-public class OneToManyListContainsImplTest extends ParameterizedOneToManyTest<OneToManyListContainsImpl> {
+public class OneToManyListContainsImplTest
+    extends ParameterizedOneToManyTest<OneToManyListContainsImpl> {
   /**
-   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung unterstützt werden.
+   * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
+   * unterstützt werden.
    *
    * @return alle unterstützten Gegenklassen
    */

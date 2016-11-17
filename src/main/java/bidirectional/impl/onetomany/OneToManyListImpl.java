@@ -13,7 +13,8 @@ import bidirectional.api.OneToMany;
 import bidirectional.impl.Superclass;
 
 /**
- * Die {@link OneToManyListImpl} ist eine {@link List} basierte Implementierung einer {@link OneToMany} Relation.
+ * Die {@link OneToManyListImpl} ist eine {@link List} basierte Implementierung einer
+ * {@link OneToMany} Relation.
  * <p>
  * Diese Implementierung unterstützt {@link LazyInstatiation}.
  *
@@ -30,7 +31,8 @@ public class OneToManyListImpl extends Superclass implements OneToMany, LazyInst
   @Override
   public boolean addMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (this == many.getOne()) return false;
+    if (this == many.getOne())
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
@@ -44,7 +46,8 @@ public class OneToManyListImpl extends Superclass implements OneToMany, LazyInst
   @Override
   public boolean removeMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (this != many.getOne()) return false;
+    if (this != many.getOne())
+      return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
