@@ -32,6 +32,7 @@ public abstract class ParameterizedManyToOneTest<M extends ManyToOne> extends Ma
   public void test_name_of_test_class_equals_name_of_class_under_test_with_suffix_Test() {
     String nameOfTestClass = getClass().getSimpleName();
     String expectedNameOfClassUnderTest = nameOfTestClass.replaceFirst("Test$", "");
-    assertThat(getClassUnderTest().getSimpleName()).isEqualTo(expectedNameOfClassUnderTest);
+    String expectedPackageName = getClass().getPackage().getName();
+    assertThat(getClassUnderTest().getName()).isEqualTo(expectedPackageName + '.' + expectedNameOfClassUnderTest);
   }
 }
