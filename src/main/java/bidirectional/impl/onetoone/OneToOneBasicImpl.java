@@ -9,6 +9,9 @@ import bidirectional.api.OneToOne;
  * <p>
  * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
  * Implementierung nutzen.
+ * <p>
+ * Diese Implementierung ist reflexiv, d.h. diese Implementierung unterstützt Selbstreferenzierung
+ * eines Objektes.
  *
  * @author uffmanna
  */

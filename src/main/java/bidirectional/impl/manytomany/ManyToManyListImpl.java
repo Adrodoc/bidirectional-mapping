@@ -19,6 +19,9 @@ import bidirectional.impl.Superclass;
  * Implementierung theoretisch nutzen, in diesem Fall wird aber keine {@link LazyInstatiation}
  * unterstützt.
  * <p>
+ * Diese Implementierung ist reflexiv, d.h. diese Implementierung unterstützt Selbstreferenzierung
+ * eines Objektes.
+ * <p>
  * Diese Implementierung unterstützt {@link LazyInstatiation}, wenn nicht beide Seiten einer
  * Relation diese Implementierung nutzen.
  *

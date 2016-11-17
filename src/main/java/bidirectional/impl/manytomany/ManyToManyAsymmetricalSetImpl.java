@@ -24,6 +24,9 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * Diese Implementierung ist asymmetrisch, d.h. es können nicht beide Seiten einer Relation diese
  * Implementierung nutzen.
  * <p>
+ * Da diese Implementierung asymmetrisch ist, ist sie nicht reflexiv, d.h. diese Implementierung
+ * unterstützt keine Selbstreferenzierung eines Objektes.
+ * <p>
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
  * zur {@link ManyToManyListImpl} eingesetzt werden.
  *

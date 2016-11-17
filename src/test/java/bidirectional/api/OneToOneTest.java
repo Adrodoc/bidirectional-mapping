@@ -10,6 +10,15 @@ public abstract class OneToOneTest {
 
   protected abstract OneToOne newB();
 
+  /**
+   * Liefert {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}.
+   * 
+   * @return {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}
+   */
+  protected boolean isReflexive() {
+    return true;
+  }
+
   @Test
   public void test_setOne() {
     // given:
@@ -90,7 +99,7 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Mit_sich_selbst() {
-    assumeTrue(newA().getClass().equals(newB().getClass()));
+    assumeTrue(isReflexive() && newA().getClass().equals(newB().getClass()));
 
     // given:
     OneToOne a = newA();
@@ -105,7 +114,7 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Sich_selbst_entfernen() {
-    assumeTrue(newA().getClass().equals(newB().getClass()));
+    assumeTrue(isReflexive() && newA().getClass().equals(newB().getClass()));
 
     // given:
     OneToOne a = newA();

@@ -9,6 +9,11 @@ import bidirectional.api.ParameterizedManyToManyTest;
 
 public class ManyToManyAsymmetricalSetImplTest
     extends ParameterizedManyToManyTest<ManyToManyAsymmetricalSetImpl> {
+  @Override
+  protected boolean isReflexive() {
+    return false;
+  }
+
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

@@ -22,6 +22,9 @@ import bidirectional.impl.Superclass;
  * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
  * Implementierung nutzen.
  * <p>
+ * Diese Implementierung ist reflexiv, d.h. diese Implementierung unterstützt Selbstreferenzierung
+ * eines Objektes.
+ * <p>
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
  * zur {@link ManyToManyListImpl} eingesetzt werden.
  *
