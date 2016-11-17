@@ -1,19 +1,22 @@
 package bidirectional.api;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assume.assumeTrue;
 
 import java.util.Collection;
 
 import org.junit.Test;
 
 public abstract class ManyToManyTest {
-  protected abstract ManyToMany newManyToMany();
+  protected abstract ManyToMany newA();
+
+  protected abstract ManyToMany newB();
 
   @Test
   public void test_addMany() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
 
     // when:
     boolean result = a.addMany(b);
@@ -27,8 +30,8 @@ public abstract class ManyToManyTest {
   @Test
   public void test_addMany__Bereits_enthalten() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
     a.addMany(b);
 
     // when:
@@ -43,9 +46,9 @@ public abstract class ManyToManyTest {
   @Test
   public void test_addMany__Fuegt_hinzu() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
-    ManyToMany c = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
+    ManyToMany c = newB();
     a.addMany(b);
 
     // when:
@@ -61,7 +64,7 @@ public abstract class ManyToManyTest {
   @Test
   public void test_addMany__Mit_null() {
     // given:
-    ManyToMany many = newManyToMany();
+    ManyToMany many = newA();
 
     // when:
     NullPointerException actual = null;
@@ -78,8 +81,10 @@ public abstract class ManyToManyTest {
 
   @Test
   public void test_addMany__Mit_sich_selbst() {
+    assumeTrue(newA().getClass().equals(newB().getClass()));
+
     // given:
-    ManyToMany a = newManyToMany();
+    ManyToMany a = newA();
 
     // when:
     boolean result = a.addMany(a);
@@ -92,8 +97,8 @@ public abstract class ManyToManyTest {
   @Test
   public void test_removeMany() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
     a.addMany(b);
 
     // when:
@@ -108,8 +113,8 @@ public abstract class ManyToManyTest {
   @Test
   public void test_removeMany__Nicht_enthalten() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
 
     // when:
     boolean result = a.removeMany(b);
@@ -123,9 +128,9 @@ public abstract class ManyToManyTest {
   @Test
   public void test_removeMany__In_Anderem_enthalten() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
-    ManyToMany c = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newA();
+    ManyToMany c = newB();
     b.addMany(c);
 
     // when:
@@ -141,7 +146,7 @@ public abstract class ManyToManyTest {
   @Test
   public void test_removeMany__Mit_null() {
     // given:
-    ManyToMany many = newManyToMany();
+    ManyToMany many = newA();
 
     // when:
     NullPointerException actual = null;
@@ -158,8 +163,10 @@ public abstract class ManyToManyTest {
 
   @Test
   public void test_removeMany__Mit_sich_selbst() {
+    assumeTrue(newA().getClass().equals(newB().getClass()));
+
     // given:
-    ManyToMany a = newManyToMany();
+    ManyToMany a = newA();
     a.addMany(a);
 
     // when:
@@ -173,8 +180,8 @@ public abstract class ManyToManyTest {
   @Test
   public void test_getManys__Liefert_unmodifiable_Collection() {
     // given:
-    ManyToMany a = newManyToMany();
-    ManyToMany b = newManyToMany();
+    ManyToMany a = newA();
+    ManyToMany b = newB();
 
     // when:
     Collection<ManyToMany> manys = a.getManys();

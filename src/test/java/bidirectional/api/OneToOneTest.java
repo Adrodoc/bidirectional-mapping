@@ -1,17 +1,20 @@
 package bidirectional.api;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 
 public abstract class OneToOneTest {
-  protected abstract OneToOne newOneToOne();
+  protected abstract OneToOne newA();
+
+  protected abstract OneToOne newB();
 
   @Test
   public void test_setOne() {
     // given:
-    OneToOne a = newOneToOne();
-    OneToOne b = newOneToOne();
+    OneToOne a = newA();
+    OneToOne b = newB();
 
     // when:
     boolean result = a.setOne(b);
@@ -25,8 +28,8 @@ public abstract class OneToOneTest {
   @Test
   public void test_setOne__Bereits_verbunden() {
     // given:
-    OneToOne a = newOneToOne();
-    OneToOne b = newOneToOne();
+    OneToOne a = newA();
+    OneToOne b = newB();
     a.setOne(b);
 
     // when:
@@ -41,9 +44,9 @@ public abstract class OneToOneTest {
   @Test
   public void test_setOne__Ersetzt() {
     // given:
-    OneToOne a = newOneToOne();
-    OneToOne b = newOneToOne();
-    OneToOne c = newOneToOne();
+    OneToOne a = newA();
+    OneToOne b = newB();
+    OneToOne c = newB();
     a.setOne(b);
 
     // when:
@@ -59,8 +62,8 @@ public abstract class OneToOneTest {
   @Test
   public void test_setOne__Trennt() {
     // given:
-    OneToOne a = newOneToOne();
-    OneToOne b = newOneToOne();
+    OneToOne a = newA();
+    OneToOne b = newB();
     a.setOne(b);
 
     // when:
@@ -75,7 +78,7 @@ public abstract class OneToOneTest {
   @Test
   public void test_setOne__Mit_null() {
     // given:
-    OneToOne a = newOneToOne();
+    OneToOne a = newA();
 
     // when:
     boolean result = a.setOne(null);
@@ -87,8 +90,10 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Mit_sich_selbst() {
+    assumeTrue(newA().getClass().equals(newB().getClass()));
+
     // given:
-    OneToOne a = newOneToOne();
+    OneToOne a = newA();
 
     // when:
     boolean result = a.setOne(a);
@@ -100,8 +105,10 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Sich_selbst_entfernen() {
+    assumeTrue(newA().getClass().equals(newB().getClass()));
+
     // given:
-    OneToOne a = newOneToOne();
+    OneToOne a = newA();
     a.setOne(a);
 
     // when:

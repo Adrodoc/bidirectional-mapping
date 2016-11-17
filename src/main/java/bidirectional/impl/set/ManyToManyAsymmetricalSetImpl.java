@@ -7,9 +7,8 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import bidirectional.api.ManyToMany;
-import bidirectional.impl.list.Superclass;
 
-public class ManyToManySetImpl extends Superclass implements ManyToMany {
+public class ManyToManyAsymmetricalSetImpl implements ManyToMany {
   private Collection<ManyToMany> manys = new HashSet<>();
 
   @Override
@@ -20,29 +19,23 @@ public class ManyToManySetImpl extends Superclass implements ManyToMany {
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) return false;
-    runNonRecursive(new Runnable() {
-      @Override
-      public void run() {
-        many.addMany(ManyToManySetImpl.this);
-        manys.add(many);
-      }
-    });
-    return true;
+    if (!manys.contains(many)) {
+      many.addMany(this);
+      manys.add(many);
+      return true;
+    }
+    return false;
   }
 
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) return false;
-    runNonRecursive(new Runnable() {
-      @Override
-      public void run() {
-        many.removeMany(ManyToManySetImpl.this);
-        manys.remove(many);
-      }
-    });
-    return true;
+    if (manys.contains(many)) {
+      many.removeMany(this);
+      manys.remove(many);
+      return true;
+    }
+    return false;
   }
 
 }

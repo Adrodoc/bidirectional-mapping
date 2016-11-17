@@ -8,11 +8,10 @@ import bidirectional.api.ManyToMany;
 import bidirectional.api.ParameterizedManyToManyTest;
 import bidirectional.impl.list.ManyToManyListImpl;
 
-public class ManyToManySetImplTest extends ParameterizedManyToManyTest<ManyToManySetImpl> {
+public class ManyToManyAsymmetricalSetImplTest extends ParameterizedManyToManyTest<ManyToManyAsymmetricalSetImpl> {
   @Parameters(name = "{0}")
   public static Iterable<Class<? extends ManyToMany>> supportedInverseClasses() {
     return Arrays.asList(//
-        ManyToManyAsymmetricalSetImpl.class, //
         ManyToManyListImpl.class, //
         ManyToManySetImpl.class, //
         ManyToManySymmetricalSetImpl.class//
