@@ -4,6 +4,13 @@ import javax.annotation.Nullable;
 
 import bidirectional.api.OneToOne;
 
+/**
+ * Die {@link OneToOneBasicImpl} ist einfache Implementierung einer {@link OneToOne} Relation.
+ * <p>
+ * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese Implementierung nutzen.
+ *
+ * @author uffmanna
+ */
 public class OneToOneBasicImpl implements OneToOne {
   private @Nullable OneToOne one;
 

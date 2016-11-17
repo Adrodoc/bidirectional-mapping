@@ -5,10 +5,23 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
+import bidirectional.LazyInstatiation;
 import bidirectional.api.ManyToOne;
 import bidirectional.api.OneToMany;
 
+/**
+ * Die {@link OneToManyListContainsImpl} ist eine {@link List} basierte Implementierung einer {@link OneToMany}
+ * Relation.
+ *
+ * Dies ist eine vereinfachte Variante der {@link OneToManyListImpl}, die verwendet werden kann, wenn keine
+ * {@link LazyInstatiation} benötigt wird.
+ * <p>
+ * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
+ *
+ * @author uffmanna
+ */
 public class OneToManyListContainsImpl implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
