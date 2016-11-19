@@ -7,164 +7,164 @@ import java.util.Collection;
 import org.junit.Test;
 
 public abstract class OneToManyTest {
-  protected abstract OneToMany newOneToMany();
+  protected abstract OneToMany newUnderTest();
 
-  protected abstract ManyToOne newManyToOne();
+  protected abstract ManyToOne newInverse();
 
   @Test
   public void test_addMany() {
     // given:
-    OneToMany one = newOneToMany();
-    ManyToOne many = newManyToOne();
+    OneToMany underTest = newUnderTest();
+    ManyToOne inverse = newInverse();
 
     // when:
-    boolean result = one.addMany(many);
+    boolean result = underTest.addMany(inverse);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
-    assertThat(many.getOne()).isSameAs(one);
+    assertThat(underTest.getManys()).containsExactlyInAnyOrder(inverse);
+    assertThat(inverse.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_addMany__Bereits_enthalten() {
     // given:
-    OneToMany one = newOneToMany();
-    ManyToOne many = newManyToOne();
-    one.addMany(many);
+    OneToMany underTest = newUnderTest();
+    ManyToOne inverse = newInverse();
+    underTest.addMany(inverse);
 
     // when:
-    boolean result = one.addMany(many);
+    boolean result = underTest.addMany(inverse);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
-    assertThat(many.getOne()).isSameAs(one);
+    assertThat(underTest.getManys()).containsExactlyInAnyOrder(inverse);
+    assertThat(inverse.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_addMany__Ersetzt() {
     // given:
-    OneToMany oldOne = newOneToMany();
-    OneToMany newOne = newOneToMany();
-    ManyToOne many = newManyToOne();
-    oldOne.addMany(many);
+    OneToMany underTest1 = newUnderTest();
+    OneToMany underTest2 = newUnderTest();
+    ManyToOne inverse = newInverse();
+    underTest1.addMany(inverse);
 
     // when:
-    boolean result = newOne.addMany(many);
+    boolean result = underTest2.addMany(inverse);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(oldOne.getManys()).isEmpty();
-    assertThat(newOne.getManys()).containsExactlyInAnyOrder(many);
-    assertThat(many.getOne()).isSameAs(newOne);
+    assertThat(underTest1.getManys()).isEmpty();
+    assertThat(underTest2.getManys()).containsExactlyInAnyOrder(inverse);
+    assertThat(inverse.getOne()).isSameAs(underTest2);
   }
 
   @Test
   public void test_addMany__Mit_null() {
     // given:
-    OneToMany one = newOneToMany();
+    OneToMany underTest = newUnderTest();
 
     // when:
     NullPointerException actual = null;
     try {
-      one.addMany(null);
+      underTest.addMany(null);
     } catch (NullPointerException ex) {
       actual = ex;
     }
 
     // then:
     assertThat(actual).isExactlyInstanceOf(NullPointerException.class).hasMessage("many == null!");
-    assertThat(one.getManys()).isEmpty();
+    assertThat(underTest.getManys()).isEmpty();
   }
 
   @Test
   public void test_removeMany() {
     // given:
-    OneToMany one = newOneToMany();
-    ManyToOne many = newManyToOne();
-    one.addMany(many);
+    OneToMany underTest = newUnderTest();
+    ManyToOne inverse = newInverse();
+    underTest.addMany(inverse);
 
     // when:
-    boolean result = one.removeMany(many);
+    boolean result = underTest.removeMany(inverse);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(one.getManys()).isEmpty();
-    assertThat(many.getOne()).isNull();
+    assertThat(underTest.getManys()).isEmpty();
+    assertThat(inverse.getOne()).isNull();
   }
 
   @Test
   public void test_removeMany__Nicht_enthalten() {
     // given:
-    OneToMany one = newOneToMany();
-    ManyToOne many = newManyToOne();
+    OneToMany underTest = newUnderTest();
+    ManyToOne inverse = newInverse();
 
     // when:
-    boolean result = one.removeMany(many);
+    boolean result = underTest.removeMany(inverse);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(one.getManys()).isEmpty();
-    assertThat(many.getOne()).isNull();
+    assertThat(underTest.getManys()).isEmpty();
+    assertThat(inverse.getOne()).isNull();
   }
 
   @Test
   public void test_removeMany__In_Anderem_enthalten() {
     // given:
-    OneToMany one = newOneToMany();
-    OneToMany other = newOneToMany();
-    ManyToOne many = newManyToOne();
-    other.addMany(many);
+    OneToMany underTest1 = newUnderTest();
+    OneToMany underTest2 = newUnderTest();
+    ManyToOne inverse = newInverse();
+    underTest1.addMany(inverse);
 
     // when:
-    boolean result = one.removeMany(many);
+    boolean result = underTest2.removeMany(inverse);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(one.getManys()).isEmpty();
-    assertThat(other.getManys()).containsExactlyInAnyOrder(many);
-    assertThat(many.getOne()).isSameAs(other);
+    assertThat(underTest1.getManys()).containsExactlyInAnyOrder(inverse);
+    assertThat(underTest2.getManys()).isEmpty();
+    assertThat(inverse.getOne()).isSameAs(underTest1);
   }
 
   @Test
   public void test_removeMany__Mit_null() {
     // given:
-    OneToMany one = newOneToMany();
+    OneToMany underTest = newUnderTest();
 
     // when:
     NullPointerException actual = null;
     try {
-      one.removeMany(null);
+      underTest.removeMany(null);
     } catch (NullPointerException ex) {
       actual = ex;
     }
 
     // then:
     assertThat(actual).isExactlyInstanceOf(NullPointerException.class).hasMessage("many == null!");
-    assertThat(one.getManys()).isEmpty();
+    assertThat(underTest.getManys()).isEmpty();
   }
 
   @Test
   public void test_getManys__Liefert_unmodifiable_Collection() {
     // given:
-    OneToMany one = newOneToMany();
-    ManyToOne many = newManyToOne();
+    OneToMany underTest = newUnderTest();
+    ManyToOne inverse = newInverse();
 
     // when:
-    Collection<ManyToOne> manys = one.getManys();
+    Collection<ManyToOne> manys = underTest.getManys();
 
     UnsupportedOperationException actual = null;
     try {
-      manys.add(many);
+      manys.add(inverse);
     } catch (UnsupportedOperationException ex) {
       actual = ex;
     }
 
     // then:
     assertThat(actual).isExactlyInstanceOf(UnsupportedOperationException.class);
-    assertThat(one.getManys()).isEmpty();
-    assertThat(many.getOne()).isNull();
+    assertThat(underTest.getManys()).isEmpty();
+    assertThat(inverse.getOne()).isNull();
   }
 
 }

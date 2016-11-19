@@ -6,13 +6,13 @@ import static org.junit.Assume.assumeTrue;
 import org.junit.Test;
 
 public abstract class OneToOneTest {
-  protected abstract OneToOne newA();
+  protected abstract OneToOne newUnderTest();
 
-  protected abstract OneToOne newB();
+  protected abstract OneToOne newInverse();
 
   /**
    * Liefert {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}.
-   * 
+   *
    * @return {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}
    */
   protected boolean isReflexive() {
@@ -22,110 +22,110 @@ public abstract class OneToOneTest {
   @Test
   public void test_setOne() {
     // given:
-    OneToOne a = newA();
-    OneToOne b = newB();
+    OneToOne underTest = newUnderTest();
+    OneToOne inverse = newInverse();
 
     // when:
-    boolean result = a.setOne(b);
+    boolean result = underTest.setOne(inverse);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(a.getOne()).isSameAs(b);
-    assertThat(b.getOne()).isSameAs(a);
+    assertThat(underTest.getOne()).isSameAs(inverse);
+    assertThat(inverse.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_setOne__Bereits_verbunden() {
     // given:
-    OneToOne a = newA();
-    OneToOne b = newB();
-    a.setOne(b);
+    OneToOne underTest = newUnderTest();
+    OneToOne inverse = newInverse();
+    underTest.setOne(inverse);
 
     // when:
-    boolean result = a.setOne(b);
+    boolean result = underTest.setOne(inverse);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(a.getOne()).isSameAs(b);
-    assertThat(b.getOne()).isSameAs(a);
+    assertThat(underTest.getOne()).isSameAs(inverse);
+    assertThat(inverse.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_setOne__Ersetzt() {
     // given:
-    OneToOne a = newA();
-    OneToOne b = newB();
-    OneToOne c = newB();
-    a.setOne(b);
+    OneToOne underTest = newUnderTest();
+    OneToOne inverse1 = newInverse();
+    OneToOne inverse2 = newInverse();
+    underTest.setOne(inverse1);
 
     // when:
-    boolean result = a.setOne(c);
+    boolean result = underTest.setOne(inverse2);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(a.getOne()).isSameAs(c);
-    assertThat(b.getOne()).isNull();
-    assertThat(c.getOne()).isSameAs(a);
+    assertThat(underTest.getOne()).isSameAs(inverse2);
+    assertThat(inverse1.getOne()).isNull();
+    assertThat(inverse2.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_setOne__Trennt() {
     // given:
-    OneToOne a = newA();
-    OneToOne b = newB();
-    a.setOne(b);
+    OneToOne underTest = newUnderTest();
+    OneToOne inverse = newInverse();
+    underTest.setOne(inverse);
 
     // when:
-    boolean result = a.setOne(null);
+    boolean result = underTest.setOne(null);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(a.getOne()).isNull();
-    assertThat(b.getOne()).isNull();
+    assertThat(underTest.getOne()).isNull();
+    assertThat(inverse.getOne()).isNull();
   }
 
   @Test
   public void test_setOne__Mit_null() {
     // given:
-    OneToOne a = newA();
+    OneToOne underTest = newUnderTest();
 
     // when:
-    boolean result = a.setOne(null);
+    boolean result = underTest.setOne(null);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(a.getOne()).isNull();
+    assertThat(underTest.getOne()).isNull();
   }
 
   @Test
   public void test_setOne__Mit_sich_selbst() {
-    assumeTrue(isReflexive() && newA().getClass().equals(newB().getClass()));
+    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:
-    OneToOne a = newA();
+    OneToOne underTest = newUnderTest();
 
     // when:
-    boolean result = a.setOne(a);
+    boolean result = underTest.setOne(underTest);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(a.getOne()).isSameAs(a);
+    assertThat(underTest.getOne()).isSameAs(underTest);
   }
 
   @Test
   public void test_setOne__Sich_selbst_entfernen() {
-    assumeTrue(isReflexive() && newA().getClass().equals(newB().getClass()));
+    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:
-    OneToOne a = newA();
-    a.setOne(a);
+    OneToOne underTest = newUnderTest();
+    underTest.setOne(underTest);
 
     // when:
-    boolean result = a.setOne(null);
+    boolean result = underTest.setOne(null);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(a.getOne()).isNull();
+    assertThat(underTest.getOne()).isNull();
   }
 
 }

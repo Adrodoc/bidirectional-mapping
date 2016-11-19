@@ -16,12 +16,12 @@ public abstract class ParameterizedOneToManyTest<O extends OneToMany> extends On
   public Class<? extends ManyToOne> inverse;
 
   @Override
-  protected OneToMany newOneToMany() {
+  protected OneToMany newUnderTest() {
     return ReflectionUtils.newInstance(getClassUnderTest());
   }
 
   @Override
-  protected ManyToOne newManyToOne() {
+  protected ManyToOne newInverse() {
     return ReflectionUtils.newInstance(inverse);
   }
 

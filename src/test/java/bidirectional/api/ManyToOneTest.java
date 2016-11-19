@@ -5,86 +5,86 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 public abstract class ManyToOneTest {
-  protected abstract ManyToOne newManyToOne();
+  protected abstract ManyToOne newUnderTest();
 
-  protected abstract OneToMany newOneToMany();
+  protected abstract OneToMany newInverse();
 
   @Test
   public void test_setOne() {
     // given:
-    ManyToOne many = newManyToOne();
-    OneToMany one = newOneToMany();
+    ManyToOne underTest = newUnderTest();
+    OneToMany inverse = newInverse();
 
     // when:
-    boolean result = many.setOne(one);
+    boolean result = underTest.setOne(inverse);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(many.getOne()).isSameAs(one);
-    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
+    assertThat(underTest.getOne()).isSameAs(inverse);
+    assertThat(inverse.getManys()).containsExactlyInAnyOrder(underTest);
   }
 
   @Test
   public void test_setOne__Bereits_verbunden() {
     // given:
-    ManyToOne many = newManyToOne();
-    OneToMany one = newOneToMany();
-    many.setOne(one);
+    ManyToOne underTest = newUnderTest();
+    OneToMany inverse = newInverse();
+    underTest.setOne(inverse);
 
     // when:
-    boolean result = many.setOne(one);
+    boolean result = underTest.setOne(inverse);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(many.getOne()).isSameAs(one);
-    assertThat(one.getManys()).containsExactlyInAnyOrder(many);
+    assertThat(underTest.getOne()).isSameAs(inverse);
+    assertThat(inverse.getManys()).containsExactlyInAnyOrder(underTest);
   }
 
   @Test
   public void test_setOne__Ersetzt() {
     // given:
-    ManyToOne many = newManyToOne();
-    OneToMany oldOne = newOneToMany();
-    OneToMany newOne = newOneToMany();
-    many.setOne(oldOne);
+    ManyToOne underTest = newUnderTest();
+    OneToMany inverse1 = newInverse();
+    OneToMany inverse2 = newInverse();
+    underTest.setOne(inverse1);
 
     // when:
-    boolean result = many.setOne(newOne);
+    boolean result = underTest.setOne(inverse2);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(many.getOne()).isSameAs(newOne);
-    assertThat(oldOne.getManys()).isEmpty();
-    assertThat(newOne.getManys()).containsExactlyInAnyOrder(many);
+    assertThat(underTest.getOne()).isSameAs(inverse2);
+    assertThat(inverse1.getManys()).isEmpty();
+    assertThat(inverse2.getManys()).containsExactlyInAnyOrder(underTest);
   }
 
   @Test
   public void test_setOne__Trennt() {
     // given:
-    ManyToOne many = newManyToOne();
-    OneToMany one = newOneToMany();
-    many.setOne(one);
+    ManyToOne underTest = newUnderTest();
+    OneToMany inverse = newInverse();
+    underTest.setOne(inverse);
 
     // when:
-    boolean result = many.setOne(null);
+    boolean result = underTest.setOne(null);
 
     // then:
     assertThat(result).isTrue();
-    assertThat(many.getOne()).isNull();
-    assertThat(one.getManys()).isEmpty();
+    assertThat(underTest.getOne()).isNull();
+    assertThat(inverse.getManys()).isEmpty();
   }
 
   @Test
   public void test_setOne__Mit_null() {
     // given:
-    ManyToOne many = newManyToOne();
+    ManyToOne underTest = newUnderTest();
 
     // when:
-    boolean result = many.setOne(null);
+    boolean result = underTest.setOne(null);
 
     // then:
     assertThat(result).isFalse();
-    assertThat(many.getOne()).isNull();
+    assertThat(underTest.getOne()).isNull();
   }
 
 }
