@@ -26,8 +26,9 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  *
  * @author uffmanna
  */
+@RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
-public class OneToManySetImpl implements OneToMany, RequiresIdentityHashSet {
+public class OneToManySetImpl implements OneToMany {
   private Collection<ManyToOne> manys = new IdentityHashSet<>();
 
   @Override

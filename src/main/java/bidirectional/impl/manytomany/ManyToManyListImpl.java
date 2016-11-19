@@ -27,7 +27,8 @@ import bidirectional.impl.Superclass;
  *
  * @author uffmanna
  */
-public class ManyToManyListImpl extends Superclass implements ManyToMany, LazyInstatiation {
+@LazyInstatiation
+public class ManyToManyListImpl extends Superclass implements ManyToMany {
   private Collection<ManyToMany> manys = new ArrayList<>();
 
   @Override

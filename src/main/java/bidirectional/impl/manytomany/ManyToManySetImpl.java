@@ -30,8 +30,9 @@ import bidirectional.impl.Superclass;
  *
  * @author uffmanna
  */
+@RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
-public class ManyToManySetImpl extends Superclass implements ManyToMany, RequiresIdentityHashSet {
+public class ManyToManySetImpl extends Superclass implements ManyToMany {
   private Collection<ManyToMany> manys = new IdentityHashSet<>();
 
   @Override

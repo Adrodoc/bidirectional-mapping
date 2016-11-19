@@ -1,5 +1,6 @@
 package bidirectional;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 
 import org.eclipse.persistence.annotations.Customizer;
@@ -9,8 +10,8 @@ import bidirectional.identityhashset.IdentityHashSet;
 import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 
 /**
- * Marker Interface für Implementierungen, die ein {@link IdentityHashSet} benötigen. Wenn die
- * {@link Object#hashCode()} und {@link Object#equals(Object)} Methoden der Klasse auf
+ * {@link Annotation} für Implementierungen, die ein {@link IdentityHashSet} benötigen. <br>
+ * Wenn die {@link Object#hashCode()} und {@link Object#equals(Object)} Methoden der Klasse auf
  * {@link System#identityHashCode(Object)} basieren (also wenn hashCode und equals nicht
  * überschrieben sind) kann in diesen Implementierungen auch ein normales {@link HashSet} verwendet
  * werden. <br>
@@ -21,11 +22,11 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * <p>
  * Bei der Verwendung eines {@link IdentityHashSet}s ist es wichtig, dass die nutzende Klasse mit
  * {@link LazyIdentityHashSetEnabler} als {@link Customizer} annotiert ist:
- * 
+ *
  * <pre>
  * {@code @Customizer(LazyIdentityHashSetEnabler.class)}
  * </pre>
- * 
+ *
  * Ist dies nicht der Fall, wird von Eclipselink bei Lazy Loading ein {@link IndirectSet} verwendet,
  * welches bei Zugriff ein {@link HashSet} verwendet. Da sich bei einer ID basierte hashCode und
  * equals Implementierung der Hashcode ändern kann (zum Beispiel beim Setzen der ID während eines DB
@@ -33,5 +34,5 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  *
  * @author uffmanna
  */
-public interface RequiresIdentityHashSet {
+public @interface RequiresIdentityHashSet {
 }

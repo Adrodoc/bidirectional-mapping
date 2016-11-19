@@ -20,7 +20,8 @@ import bidirectional.impl.Superclass;
  *
  * @author uffmanna
  */
-public class OneToManyListImpl extends Superclass implements OneToMany, LazyInstatiation {
+@LazyInstatiation
+public class OneToManyListImpl extends Superclass implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override

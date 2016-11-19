@@ -32,8 +32,9 @@ import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  *
  * @author uffmanna
  */
+@RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
-public class ManyToManyAsymmetricalSetImpl implements ManyToMany, RequiresIdentityHashSet {
+public class ManyToManyAsymmetricalSetImpl implements ManyToMany {
   private Collection<ManyToMany> manys = new IdentityHashSet<>();
 
   @Override

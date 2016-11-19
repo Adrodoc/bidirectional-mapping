@@ -1,5 +1,6 @@
 package bidirectional;
 
+import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -14,7 +15,7 @@ import bidirectional.api.ManyToMany;
 import bidirectional.api.OneToMany;
 
 /**
- * Marker Interface für Implementierungen, die
+ * {@link Annotation} für Implementierungen, die
  * <a href="https://en.wikipedia.org/wiki/Lazy_initialization">Lazy Instatiation</a> unterstützen.
  * Lazy Instatiation kann von Eclipselink als Performance Optimierung bei <a href=
  * "http://www.eclipse.org/eclipselink/documentation/2.6/concepts/mappingintro002.htm#CEGGCCGA">
@@ -25,9 +26,9 @@ import bidirectional.api.OneToMany;
  * and remove from them. IndirectList defaults to this behavior. When Set to true, the collection
  * associated with this TransparentIndirection will be setup so as not to instantiate for adds and
  * removes. The weakness of this setting for an IndirectSet is that when the set is not
- * instantiated, if a duplicate element is added, it will not be detected until commit time.
- * </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten keine
- * {@link Set}s verwenden, da sonst ein {@link SessionEventListener} verwendet werden muss.
+ * instantiated, if a duplicate element is added, it will not be detected until commit
+ * time. </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten
+ * keine {@link Set}s verwenden, da sonst ein {@link SessionEventListener} verwendet werden muss.
  * <p>
  * Damit eine Implementierung Lazy Instatiation von Eclipselink unterstützen kann, darf sie in den
  * add und remove Methoden folgende Methoden der {@link Collection} NICHT nutzen:
@@ -71,5 +72,5 @@ import bidirectional.api.OneToMany;
  *
  * @author uffmanna
  */
-public interface LazyInstatiation {
+public @interface LazyInstatiation {
 }
