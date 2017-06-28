@@ -26,8 +26,8 @@ public class OneToManyJava8LazyList {
     self.runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        otherSet.accept(many, self);
         selfAdd.accept(many);
+        otherSet.accept(many, self);
       }
     });
     return true;
@@ -45,8 +45,8 @@ public class OneToManyJava8LazyList {
     self.runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        otherSet.accept(many, null);
         selfRemove.accept(many);
+        otherSet.accept(many, null);
       }
     });
     return true;

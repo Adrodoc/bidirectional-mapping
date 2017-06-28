@@ -24,7 +24,7 @@ public class ManyToOneJava8Impl implements ManyToOne {
 
   @Override
   public boolean setOne(@Nullable OneToMany one) {
-    return ManyToOneJava8.setOne(this, this.one, one, o -> this.one = o, OneToMany::addMany,
-        OneToMany::removeMany);
+    return ManyToOneJava8.setOne(this, this.one, one, o -> this.one = o, OneToMany::removeMany,
+        OneToMany::addMany);
   }
 }

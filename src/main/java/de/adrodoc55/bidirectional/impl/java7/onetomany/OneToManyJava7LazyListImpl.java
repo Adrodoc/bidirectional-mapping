@@ -39,8 +39,8 @@ public class OneToManyJava7LazyListImpl extends Superclass implements OneToMany 
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.setOne(OneToManyJava7LazyListImpl.this);
         manys.add(many);
+        many.setOne(OneToManyJava7LazyListImpl.this);
       }
     });
     return true;
@@ -54,8 +54,8 @@ public class OneToManyJava7LazyListImpl extends Superclass implements OneToMany 
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.setOne(null);
         manys.remove(many);
+        many.setOne(null);
       }
     });
     return true;

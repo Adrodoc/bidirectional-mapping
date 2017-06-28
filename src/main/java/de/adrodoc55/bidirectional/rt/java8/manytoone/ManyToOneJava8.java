@@ -12,7 +12,7 @@ import de.adrodoc55.bidirectional.impl.java8.manytoone.ManyToOneJava8Impl;
  */
 public class ManyToOneJava8 {
   public static <S, O> boolean setOne(S self, O oldOne, O newOne, Consumer<? super O> selfSet,
-      BiConsumer<? super O, ? super S> otherAdd, BiConsumer<? super O, ? super S> otherRemove) {
+      BiConsumer<? super O, ? super S> otherRemove, BiConsumer<? super O, ? super S> otherAdd) {
     if (oldOne == newOne)
       return false;
     if (oldOne != null)
