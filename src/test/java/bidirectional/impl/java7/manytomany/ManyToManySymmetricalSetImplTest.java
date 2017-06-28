@@ -1,4 +1,4 @@
-package bidirectional.impl.manytomany;
+package bidirectional.impl.java7.manytomany;
 
 import java.util.Arrays;
 
@@ -6,8 +6,12 @@ import org.junit.runners.Parameterized.Parameters;
 
 import bidirectional.api.ManyToMany;
 import bidirectional.api.ParameterizedManyToManyTest;
+import bidirectional.impl.java7.manytomany.ManyToManyAsymmetricalSetImpl;
+import bidirectional.impl.java7.manytomany.ManyToManySetImpl;
+import bidirectional.impl.java7.manytomany.ManyToManySymmetricalSetImpl;
 
-public class ManyToManyListImplTest extends ParameterizedManyToManyTest<ManyToManyListImpl> {
+public class ManyToManySymmetricalSetImplTest
+    extends ParameterizedManyToManyTest<ManyToManySymmetricalSetImpl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.
@@ -18,8 +22,8 @@ public class ManyToManyListImplTest extends ParameterizedManyToManyTest<ManyToMa
   public static Iterable<Class<? extends ManyToMany>> supportedInverseClasses() {
     return Arrays.asList(//
         ManyToManyAsymmetricalSetImpl.class, //
-        ManyToManyListImpl.class, //
-        ManyToManySetImpl.class //
+        ManyToManySetImpl.class, //
+        ManyToManySymmetricalSetImpl.class//
     );
   }
 }

@@ -1,4 +1,4 @@
-package bidirectional.impl.manytoone;
+package bidirectional.impl.java7.manytoone;
 
 import java.util.Arrays;
 
@@ -6,12 +6,12 @@ import org.junit.runners.Parameterized.Parameters;
 
 import bidirectional.api.OneToMany;
 import bidirectional.api.ParameterizedManyToOneTest;
-import bidirectional.impl.manytoone.ManyToOneBasicImpl;
-import bidirectional.impl.onetomany.OneToManyListContainsImpl;
-import bidirectional.impl.onetomany.OneToManyListImpl;
-import bidirectional.impl.onetomany.OneToManySetImpl;
+import bidirectional.impl.java7.manytoone.ManyToOneJava7Impl;
+import bidirectional.impl.java7.onetomany.OneToManyListContainsImpl;
+import bidirectional.impl.java7.onetomany.OneToManyListImpl;
+import bidirectional.impl.java7.onetomany.OneToManySetImpl;
 
-public class ManyToOneBasicImplTest extends ParameterizedManyToOneTest<ManyToOneBasicImpl> {
+public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOneJava7Impl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

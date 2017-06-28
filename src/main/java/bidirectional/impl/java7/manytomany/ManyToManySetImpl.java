@@ -1,4 +1,4 @@
-package bidirectional.impl.manytomany;
+package bidirectional.impl.java7.manytomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -13,7 +13,7 @@ import bidirectional.RequiresIdentityHashSet;
 import bidirectional.api.ManyToMany;
 import bidirectional.identityhashset.IdentityHashSet;
 import bidirectional.identityhashset.LazyIdentityHashSetEnabler;
-import bidirectional.impl.Superclass;
+import bidirectional.impl.java7.Superclass;
 
 /**
  * Die {@link ManyToManySetImpl} ist eine {@link Set} basierte Implementierung einer

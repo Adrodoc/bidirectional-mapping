@@ -1,4 +1,4 @@
-package bidirectional.impl.onetoone;
+package bidirectional.impl.java7.onetoone;
 
 import java.util.Arrays;
 
@@ -6,8 +6,9 @@ import org.junit.runners.Parameterized.Parameters;
 
 import bidirectional.api.OneToOne;
 import bidirectional.api.ParameterizedOneToOneTest;
+import bidirectional.impl.java7.onetoone.OneToOneJava7Impl;
 
-public class OneToOneBasicImplTest extends ParameterizedOneToOneTest<OneToOneBasicImpl> {
+public class OneToOneJava7ImplTest extends ParameterizedOneToOneTest<OneToOneJava7Impl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.
@@ -17,7 +18,7 @@ public class OneToOneBasicImplTest extends ParameterizedOneToOneTest<OneToOneBas
   @Parameters(name = "{0}")
   public static Iterable<Class<? extends OneToOne>> supportedInverseClasses() {
     return Arrays.asList(//
-        OneToOneBasicImpl.class//
+        OneToOneJava7Impl.class//
     );
   }
 }

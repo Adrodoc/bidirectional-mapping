@@ -1,4 +1,4 @@
-package bidirectional.impl;
+package bidirectional.impl.java7;
 
 import javax.persistence.Transient;
 

@@ -1,4 +1,4 @@
-package bidirectional.impl.manytomany;
+package bidirectional.impl.java7.manytomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 import bidirectional.LazyInstatiation;
 import bidirectional.api.ManyToMany;
-import bidirectional.impl.Superclass;
+import bidirectional.impl.java7.Superclass;
 
 /**
  * Die {@link ManyToManyListImpl} ist eine {@link List} basierte Implementierung einer

@@ -1,11 +1,11 @@
-package bidirectional.impl.onetoone;
+package bidirectional.impl.java7.onetoone;
 
 import javax.annotation.Nullable;
 
 import bidirectional.api.OneToOne;
 
 /**
- * Die {@link OneToOneBasicImpl} ist einfache Implementierung einer {@link OneToOne} Relation.
+ * Die {@link OneToOneJava7Impl} ist einfache Implementierung einer {@link OneToOne} Relation.
  * <p>
  * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
  * Implementierung nutzen.
@@ -15,7 +15,7 @@ import bidirectional.api.OneToOne;
  *
  * @author uffmanna
  */
-public class OneToOneBasicImpl implements OneToOne {
+public class OneToOneJava7Impl implements OneToOne {
   private @Nullable OneToOne one;
 
   @Override

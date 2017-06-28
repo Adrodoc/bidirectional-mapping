@@ -1,4 +1,4 @@
-package bidirectional.impl.manytoone;
+package bidirectional.impl.java7.manytoone;
 
 import javax.annotation.Nullable;
 
@@ -6,13 +6,13 @@ import bidirectional.api.ManyToOne;
 import bidirectional.api.OneToMany;
 
 /**
- * Die {@link ManyToOneBasicImpl} ist einfache Implementierung einer {@link ManyToOne} Relation.
+ * Die {@link ManyToOneJava7Impl} ist einfache Implementierung einer {@link ManyToOne} Relation.
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link OneToMany} Implementierungen.
  *
  * @author uffmanna
  */
-public class ManyToOneBasicImpl implements ManyToOne {
+public class ManyToOneJava7Impl implements ManyToOne {
   private @Nullable OneToMany one;
 
   @Override

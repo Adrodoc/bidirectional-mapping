@@ -1,4 +1,4 @@
-package bidirectional.impl.onetomany;
+package bidirectional.impl.java7.onetomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

@@ -11,15 +11,15 @@ Set basierte Implementierungen benötigen in der Regel ein IdentityHashSet, dies
 Dies sind die empfohlenen Implementierungen, die aktuell die beste Performance bieten:
 
 ## OneToOne
-[OneToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/onetoone/OneToOneBasicImpl.java)
+[OneToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/java7/onetoone/OneToOneJava7Impl.java)
 
 ## OneToMany
-[OneToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/onetomany/OneToManyListImpl.java)
+[OneToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/java7/onetomany/OneToManyListImpl.java)
 
 ## ManyToOne
-[ManyToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/manytoone/ManyToOneBasicImpl.java)
+[ManyToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/java7/manytoone/ManyToOneJava7Impl.java)
 
 ## ManyToMany
-Auf der größeren Seite der Relation (Die Seite, auf der viele Instanzen erwartet werden) [ManyToManySetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/manytomany/ManyToManySetImpl.java) und auf der kleineren Seite der Relation (Die Seite, auf der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/manytomany/ManyToManyListImpl.java)
+Auf der größeren Seite der Relation (In der Klasse, von der viele Instanzen erwartet werden) [ManyToManySetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/java7/manytomany/ManyToManySetImpl.java) und auf der kleineren Seite der Relation (In der Klasse, von der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/impl/java7/manytomany/ManyToManyListImpl.java)
 
 [Lazy Instatiation]: https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/bidirectional/LazyInstatiation.java
