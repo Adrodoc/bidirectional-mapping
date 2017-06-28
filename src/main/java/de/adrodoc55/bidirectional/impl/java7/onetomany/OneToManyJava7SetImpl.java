@@ -19,10 +19,12 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * Die {@link OneToManyJava7SetImpl} ist eine {@link Set} basierte Implementierung einer
  * {@link OneToMany} Relation.
  *
- * Dies ist eine schnellere Variante der {@link OneToManyJava7ListContainsImpl}, die verwendet werden
- * kann, wenn keine {@link LazyInstatiation} benötigt wird.
+ * Dies ist eine schnellere Variante der {@link OneToManyJava7ListContainsImpl}, die verwendet
+ * werden kann, wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
+ * <p>
+ * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
  * @author uffmanna
  */

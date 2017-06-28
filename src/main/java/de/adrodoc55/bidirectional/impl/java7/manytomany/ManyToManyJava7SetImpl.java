@@ -27,6 +27,8 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * <p>
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
  * zur {@link ManyToManyJava7LazyListImpl} eingesetzt werden.
+ * <p>
+ * Diese Implementierung unterstützt alle bekannten {@link ManyToMany} Implementierungen.
  *
  * @author uffmanna
  */

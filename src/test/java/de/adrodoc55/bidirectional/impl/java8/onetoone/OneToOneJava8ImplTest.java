@@ -1,4 +1,4 @@
-package de.adrodoc55.bidirectional.impl.java7.onetoone;
+package de.adrodoc55.bidirectional.impl.java8.onetoone;
 
 import java.util.Arrays;
 
@@ -6,9 +6,9 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.adrodoc55.bidirectional.api.OneToOne;
 import de.adrodoc55.bidirectional.api.ParameterizedOneToOneTest;
-import de.adrodoc55.bidirectional.impl.java8.onetoone.OneToOneJava8Impl;
+import de.adrodoc55.bidirectional.impl.java7.onetoone.OneToOneJava7Impl;
 
-public class OneToOneJava7ImplTest extends ParameterizedOneToOneTest<OneToOneJava7Impl> {
+public class OneToOneJava8ImplTest extends ParameterizedOneToOneTest<OneToOneJava8Impl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

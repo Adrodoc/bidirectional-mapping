@@ -1,11 +1,13 @@
-package de.adrodoc55.bidirectional.impl.java7.onetoone;
+package de.adrodoc55.bidirectional.impl.java8.onetoone;
 
 import javax.annotation.Nullable;
 
 import de.adrodoc55.bidirectional.api.OneToOne;
+import de.adrodoc55.bidirectional.rt.java8.onetoone.OneToOneJava8;
 
 /**
- * Die {@link OneToOneJava7Impl} ist einfache Implementierung einer {@link OneToOne} Relation.
+ * Die {@link OneToOneJava8Impl} ist einfache Implementierung einer {@link OneToOne} Relation mit
+ * Nutzung von Java 8 Features.
  * <p>
  * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
  * Implementierung nutzen.
@@ -17,7 +19,7 @@ import de.adrodoc55.bidirectional.api.OneToOne;
  *
  * @author uffmanna
  */
-public class OneToOneJava7Impl implements OneToOne {
+public class OneToOneJava8Impl implements OneToOne {
   private @Nullable OneToOne one;
 
   @Override
@@ -26,15 +28,7 @@ public class OneToOneJava7Impl implements OneToOne {
   }
 
   @Override
-  public boolean setOne(@Nullable OneToOne otherOne) {
-    if (this.one == otherOne)
-      return false;
-    OneToOne oldOne = this.one;
-    this.one = otherOne;
-    if (oldOne != null)
-      oldOne.setOne(null);
-    if (otherOne != null)
-      otherOne.setOne(this);
-    return true;
+  public boolean setOne(@Nullable OneToOne one) {
+    return OneToOneJava8.setOne(this, this.one, one, o -> this.one = o, OneToOne::setOne);
   }
 }

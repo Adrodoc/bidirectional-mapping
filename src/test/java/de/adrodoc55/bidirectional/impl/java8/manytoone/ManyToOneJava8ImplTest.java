@@ -1,4 +1,4 @@
-package de.adrodoc55.bidirectional.impl.java7.manytoone;
+package de.adrodoc55.bidirectional.impl.java8.manytoone;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7LazyListImp
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7ListContainsImpl;
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7SetImpl;
 
-public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOneJava7Impl> {
+public class ManyToOneJava8ImplTest extends ParameterizedManyToOneTest<ManyToOneJava8Impl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

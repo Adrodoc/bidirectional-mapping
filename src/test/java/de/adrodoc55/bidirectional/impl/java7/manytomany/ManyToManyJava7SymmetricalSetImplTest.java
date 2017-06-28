@@ -20,7 +20,7 @@ public class ManyToManyJava7SymmetricalSetImplTest
     return Arrays.asList(//
         ManyToManyJava7AsymmetricalSetImpl.class, //
         ManyToManyJava7SetImpl.class, //
-        ManyToManyJava7SymmetricalSetImpl.class//
+        ManyToManyJava7SymmetricalSetImpl.class //
     );
   }
 

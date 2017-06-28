@@ -17,6 +17,8 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * {@link OneToMany} Relation.
  * <p>
  * Diese Implementierung unterstützt {@link LazyInstatiation}.
+ * <p>
+ * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
  * @author uffmanna
  */

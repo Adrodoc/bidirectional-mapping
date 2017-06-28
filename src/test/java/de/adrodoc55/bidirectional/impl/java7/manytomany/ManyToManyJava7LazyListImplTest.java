@@ -7,7 +7,8 @@ import org.junit.runners.Parameterized.Parameters;
 import de.adrodoc55.bidirectional.api.ManyToMany;
 import de.adrodoc55.bidirectional.api.ParameterizedManyToManyTest;
 
-public class ManyToManyJava7LazyListImplTest extends ParameterizedManyToManyTest<ManyToManyJava7LazyListImpl> {
+public class ManyToManyJava7LazyListImplTest
+    extends ParameterizedManyToManyTest<ManyToManyJava7LazyListImpl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

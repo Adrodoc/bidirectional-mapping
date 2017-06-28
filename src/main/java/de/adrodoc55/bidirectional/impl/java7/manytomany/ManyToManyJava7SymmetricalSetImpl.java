@@ -18,8 +18,8 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * Die {@link ManyToManyJava7SymmetricalSetImpl} ist eine {@link Set} basierte Implementierung einer
  * {@link ManyToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link ManyToManyJava7SetImpl}, die verwendet werden kann,
- * wenn keine {@link LazyInstatiation} benötigt wird.
+ * Dies ist eine vereinfachte Variante der {@link ManyToManyJava7SetImpl}, die verwendet werden
+ * kann, wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
  * Implementierung nutzen.
