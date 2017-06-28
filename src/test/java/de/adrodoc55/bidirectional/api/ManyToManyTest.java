@@ -17,8 +17,10 @@ public abstract class ManyToManyTest {
    *
    * @return {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}
    */
-  protected boolean isReflexive() {
-    return true;
+  protected abstract boolean isReflexive();
+
+  protected void assumeReflexive() throws Exception {
+    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
   }
 
   @Test
@@ -90,7 +92,7 @@ public abstract class ManyToManyTest {
 
   @Test
   public void test_addMany__Mit_sich_selbst() throws Exception {
-    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
+    assumeReflexive();
 
     // given:
     ManyToMany underTest = newUnderTest();
@@ -172,7 +174,7 @@ public abstract class ManyToManyTest {
 
   @Test
   public void test_removeMany__Mit_sich_selbst() throws Exception {
-    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
+    assumeReflexive();
 
     // given:
     ManyToMany underTest = newUnderTest();

@@ -23,4 +23,9 @@ public class ManyToManySymmetricalSetImplTest
         ManyToManySymmetricalSetImpl.class//
     );
   }
+
+  @Override
+  protected boolean isReflexive() {
+    return true;
+  }
 }

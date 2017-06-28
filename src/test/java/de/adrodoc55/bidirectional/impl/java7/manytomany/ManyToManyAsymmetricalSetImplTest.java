@@ -9,11 +9,6 @@ import de.adrodoc55.bidirectional.api.ParameterizedManyToManyTest;
 
 public class ManyToManyAsymmetricalSetImplTest
     extends ParameterizedManyToManyTest<ManyToManyAsymmetricalSetImpl> {
-  @Override
-  protected boolean isReflexive() {
-    return false;
-  }
-
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.
@@ -27,5 +22,10 @@ public class ManyToManyAsymmetricalSetImplTest
         ManyToManySetImpl.class, //
         ManyToManySymmetricalSetImpl.class//
     );
+  }
+
+  @Override
+  protected boolean isReflexive() {
+    return false;
   }
 }

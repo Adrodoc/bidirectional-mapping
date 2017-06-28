@@ -20,4 +20,9 @@ public class OneToOneJava7ImplTest extends ParameterizedOneToOneTest<OneToOneJav
         OneToOneJava7Impl.class//
     );
   }
+
+  @Override
+  protected boolean isReflexive() {
+    return true;
+  }
 }

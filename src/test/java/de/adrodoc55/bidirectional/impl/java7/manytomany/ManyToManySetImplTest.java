@@ -23,4 +23,9 @@ public class ManyToManySetImplTest extends ParameterizedManyToManyTest<ManyToMan
         ManyToManySymmetricalSetImpl.class//
     );
   }
+
+  @Override
+  protected boolean isReflexive() {
+    return true;
+  }
 }

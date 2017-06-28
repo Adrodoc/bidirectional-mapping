@@ -15,8 +15,10 @@ public abstract class OneToOneTest {
    *
    * @return {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}
    */
-  protected boolean isReflexive() {
-    return true;
+  protected abstract boolean isReflexive();
+
+  protected void assumeReflexive() throws Exception {
+    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
   }
 
   @Test
@@ -99,7 +101,7 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Mit_sich_selbst() throws Exception {
-    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
+    assumeReflexive();
 
     // given:
     OneToOne underTest = newUnderTest();
@@ -114,7 +116,7 @@ public abstract class OneToOneTest {
 
   @Test
   public void test_setOne__Sich_selbst_entfernen() throws Exception {
-    assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
+    assumeReflexive();
 
     // given:
     OneToOne underTest = newUnderTest();
@@ -127,5 +129,4 @@ public abstract class OneToOneTest {
     assertThat(result).isTrue();
     assertThat(underTest.getOne()).isNull();
   }
-
 }

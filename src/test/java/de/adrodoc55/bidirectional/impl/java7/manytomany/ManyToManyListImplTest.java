@@ -22,4 +22,9 @@ public class ManyToManyListImplTest extends ParameterizedManyToManyTest<ManyToMa
         ManyToManySetImpl.class //
     );
   }
+
+  @Override
+  protected boolean isReflexive() {
+    return true;
+  }
 }
