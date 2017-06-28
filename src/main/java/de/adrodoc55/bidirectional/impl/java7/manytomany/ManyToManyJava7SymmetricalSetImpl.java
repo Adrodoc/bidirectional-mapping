@@ -29,7 +29,7 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)

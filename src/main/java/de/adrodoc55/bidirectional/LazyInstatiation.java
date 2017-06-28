@@ -70,7 +70,7 @@ import de.adrodoc55.bidirectional.api.OneToMany;
  * <li>{@link Vector#trimToSize()}
  * </ul>
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public @interface LazyInstatiation {
 }

@@ -32,7 +32,7 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * equals Implementierung der Hashcode ändern kann (zum Beispiel beim Setzen der ID während eines DB
  * insterts) eignet sich ein {@link HashSet} jedoch nicht um die Relation abzubilden.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public @interface RequiresIdentityHashSet {
 }

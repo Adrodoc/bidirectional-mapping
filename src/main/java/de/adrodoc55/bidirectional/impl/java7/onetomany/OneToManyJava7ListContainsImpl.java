@@ -22,7 +22,7 @@ import de.adrodoc55.bidirectional.api.OneToMany;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class OneToManyJava7ListContainsImpl implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();

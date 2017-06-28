@@ -8,7 +8,7 @@ import de.adrodoc55.bidirectional.impl.java8.onetoone.OneToOneJava8Impl;
 /**
  * {@link OneToOneJava8} ist eine Laufzeit Helfer Klasse für die {@link OneToOneJava8Impl}.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class OneToOneJava8 {
   public static <S, O> boolean setOne(S self, O oldOne, O newOne, Consumer<? super O> selfSet,

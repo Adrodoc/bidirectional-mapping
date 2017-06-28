@@ -20,7 +20,7 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 @LazyInstatiation
 public class OneToManyJava7LazyListImpl extends Superclass implements OneToMany {

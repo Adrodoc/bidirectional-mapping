@@ -15,7 +15,7 @@ import de.adrodoc55.bidirectional.api.OneToOne;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link OneToOne} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class OneToOneJava7Impl implements OneToOne {
   private @Nullable OneToOne one;

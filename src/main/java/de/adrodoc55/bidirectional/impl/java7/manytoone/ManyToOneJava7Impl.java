@@ -10,7 +10,7 @@ import de.adrodoc55.bidirectional.api.OneToMany;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link OneToMany} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class ManyToOneJava7Impl implements ManyToOne {
   private @Nullable OneToMany one;

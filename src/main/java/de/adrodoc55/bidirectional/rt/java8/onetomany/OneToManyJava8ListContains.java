@@ -13,7 +13,7 @@ import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8ListContain
  * {@link OneToManyJava8ListContains} ist eine Laufzeit Helfer Klasse für die
  * {@link OneToManyJava8ListContainsImpl}.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class OneToManyJava8ListContains {
   public static <S, M> boolean addMany(S self, M many, Collection<? super M> manys,

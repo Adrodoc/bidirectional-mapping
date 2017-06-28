@@ -26,7 +26,7 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)

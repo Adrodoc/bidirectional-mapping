@@ -6,7 +6,7 @@ import javax.persistence.Transient;
  * Die Methode {@link #runNonRecursive(Runnable)} wird von einigen Implementierungen benötigt, es
  * ist ausreichend diese Methode in einer gemeinsamen Superklasse zu implementieren.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public abstract class Superclass {
   @Transient

@@ -12,7 +12,7 @@ import de.adrodoc55.bidirectional.rt.java8.manytoone.ManyToOneJava8;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link OneToMany} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class ManyToOneJava8Impl implements ManyToOne {
   private @Nullable OneToMany one;

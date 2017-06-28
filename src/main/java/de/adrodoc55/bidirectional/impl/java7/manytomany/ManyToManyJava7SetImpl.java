@@ -30,7 +30,7 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link ManyToMany} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)

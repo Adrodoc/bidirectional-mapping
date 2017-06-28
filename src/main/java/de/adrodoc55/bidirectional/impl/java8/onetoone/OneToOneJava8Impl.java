@@ -17,7 +17,7 @@ import de.adrodoc55.bidirectional.rt.java8.onetoone.OneToOneJava8;
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link OneToOne} Implementierungen.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 public class OneToOneJava8Impl implements OneToOne {
   private @Nullable OneToOne one;

@@ -30,7 +30,7 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
  * zur {@link ManyToManyJava7LazyListImpl} eingesetzt werden.
  *
- * @author uffmanna
+ * @author Adrodoc55
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
