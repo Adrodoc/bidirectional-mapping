@@ -28,7 +28,7 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * unterstützt keine Selbstreferenzierung eines Objektes.
  * <p>
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
- * zur {@link ManyToManyJava7ListImpl} eingesetzt werden.
+ * zur {@link ManyToManyJava7LazyListImpl} eingesetzt werden.
  *
  * @author uffmanna
  */

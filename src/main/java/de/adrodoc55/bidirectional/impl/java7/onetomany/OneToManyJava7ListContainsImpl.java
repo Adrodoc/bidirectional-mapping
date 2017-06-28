@@ -15,7 +15,7 @@ import de.adrodoc55.bidirectional.api.OneToMany;
  * Die {@link OneToManyJava7ListContainsImpl} ist eine {@link List} basierte Implementierung einer
  * {@link OneToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link OneToManyJava7ListImpl}, die verwendet werden kann,
+ * Dies ist eine vereinfachte Variante der {@link OneToManyJava7LazyListImpl}, die verwendet werden kann,
  * wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.

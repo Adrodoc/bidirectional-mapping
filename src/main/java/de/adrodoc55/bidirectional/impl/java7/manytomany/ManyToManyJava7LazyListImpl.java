@@ -12,7 +12,7 @@ import de.adrodoc55.bidirectional.api.ManyToMany;
 import de.adrodoc55.bidirectional.impl.java7.Superclass;
 
 /**
- * Die {@link ManyToManyJava7ListImpl} ist eine {@link List} basierte Implementierung einer
+ * Die {@link ManyToManyJava7LazyListImpl} ist eine {@link List} basierte Implementierung einer
  * {@link ManyToMany} Relation.
  * <p>
  * Diese Implementierung ist zwar symmetrisch, d.h. beide Seiten einer Relation können diese
@@ -28,7 +28,7 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * @author uffmanna
  */
 @LazyInstatiation
-public class ManyToManyJava7ListImpl extends Superclass implements ManyToMany {
+public class ManyToManyJava7LazyListImpl extends Superclass implements ManyToMany {
   private Collection<ManyToMany> manys = new ArrayList<>();
 
   @Override
@@ -44,7 +44,7 @@ public class ManyToManyJava7ListImpl extends Superclass implements ManyToMany {
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.addMany(ManyToManyJava7ListImpl.this);
+        many.addMany(ManyToManyJava7LazyListImpl.this);
         manys.add(many);
       }
     });
@@ -59,7 +59,7 @@ public class ManyToManyJava7ListImpl extends Superclass implements ManyToMany {
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.removeMany(ManyToManyJava7ListImpl.this);
+        many.removeMany(ManyToManyJava7LazyListImpl.this);
         manys.remove(many);
       }
     });

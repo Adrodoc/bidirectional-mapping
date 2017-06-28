@@ -18,7 +18,7 @@ public class ManyToManyJava7SetImplTest extends ParameterizedManyToManyTest<Many
   public static Iterable<Class<? extends ManyToMany>> supportedInverseClasses() {
     return Arrays.asList(//
         ManyToManyJava7AsymmetricalSetImpl.class, //
-        ManyToManyJava7ListImpl.class, //
+        ManyToManyJava7LazyListImpl.class, //
         ManyToManyJava7SetImpl.class, //
         ManyToManyJava7SymmetricalSetImpl.class//
     );
