@@ -57,5 +57,4 @@ public class OneToManyJava7SetImpl implements OneToMany {
     }
     return false;
   }
-
 }

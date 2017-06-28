@@ -71,5 +71,4 @@ public class ManyToManyJava7SetImpl extends Superclass implements ManyToMany {
     });
     return true;
   }
-
 }

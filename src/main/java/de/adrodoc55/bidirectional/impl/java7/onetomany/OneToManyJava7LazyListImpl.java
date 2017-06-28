@@ -60,5 +60,4 @@ public class OneToManyJava7LazyListImpl extends Superclass implements OneToMany 
     });
     return true;
   }
-
 }

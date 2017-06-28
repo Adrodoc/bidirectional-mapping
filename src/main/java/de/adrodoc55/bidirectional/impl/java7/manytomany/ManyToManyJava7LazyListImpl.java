@@ -65,5 +65,4 @@ public class ManyToManyJava7LazyListImpl extends Superclass implements ManyToMan
     });
     return true;
   }
-
 }

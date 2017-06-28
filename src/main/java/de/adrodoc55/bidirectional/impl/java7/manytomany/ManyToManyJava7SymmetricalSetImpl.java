@@ -60,5 +60,4 @@ public class ManyToManyJava7SymmetricalSetImpl implements ManyToMany {
     }
     return false;
   }
-
 }
