@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized.Parameters;
 import de.adrodoc55.bidirectional.api.ManyToMany;
 import de.adrodoc55.bidirectional.api.ParameterizedManyToManyTest;
 
-public class ManyToManySetImplTest extends ParameterizedManyToManyTest<ManyToManySetImpl> {
+public class ManyToManyJava7SetImplTest extends ParameterizedManyToManyTest<ManyToManyJava7SetImpl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.
@@ -17,10 +17,10 @@ public class ManyToManySetImplTest extends ParameterizedManyToManyTest<ManyToMan
   @Parameters(name = "{0}")
   public static Iterable<Class<? extends ManyToMany>> supportedInverseClasses() {
     return Arrays.asList(//
-        ManyToManyAsymmetricalSetImpl.class, //
-        ManyToManyListImpl.class, //
-        ManyToManySetImpl.class, //
-        ManyToManySymmetricalSetImpl.class//
+        ManyToManyJava7AsymmetricalSetImpl.class, //
+        ManyToManyJava7ListImpl.class, //
+        ManyToManyJava7SetImpl.class, //
+        ManyToManyJava7SymmetricalSetImpl.class//
     );
   }
 

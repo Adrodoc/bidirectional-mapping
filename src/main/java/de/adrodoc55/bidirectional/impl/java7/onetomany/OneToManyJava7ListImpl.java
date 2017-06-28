@@ -13,7 +13,7 @@ import de.adrodoc55.bidirectional.api.OneToMany;
 import de.adrodoc55.bidirectional.impl.java7.Superclass;
 
 /**
- * Die {@link OneToManyListImpl} ist eine {@link List} basierte Implementierung einer
+ * Die {@link OneToManyJava7ListImpl} ist eine {@link List} basierte Implementierung einer
  * {@link OneToMany} Relation.
  * <p>
  * Diese Implementierung unterstützt {@link LazyInstatiation}.
@@ -21,7 +21,7 @@ import de.adrodoc55.bidirectional.impl.java7.Superclass;
  * @author uffmanna
  */
 @LazyInstatiation
-public class OneToManyListImpl extends Superclass implements OneToMany {
+public class OneToManyJava7ListImpl extends Superclass implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override
@@ -37,7 +37,7 @@ public class OneToManyListImpl extends Superclass implements OneToMany {
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.setOne(OneToManyListImpl.this);
+        many.setOne(OneToManyJava7ListImpl.this);
         manys.add(many);
       }
     });

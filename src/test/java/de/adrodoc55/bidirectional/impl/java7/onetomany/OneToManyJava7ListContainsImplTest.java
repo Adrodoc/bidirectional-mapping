@@ -8,7 +8,8 @@ import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.ParameterizedOneToManyTest;
 import de.adrodoc55.bidirectional.impl.java7.manytoone.ManyToOneJava7Impl;
 
-public class OneToManyListImplTest extends ParameterizedOneToManyTest<OneToManyListImpl> {
+public class OneToManyJava7ListContainsImplTest
+    extends ParameterizedOneToManyTest<OneToManyJava7ListContainsImpl> {
   /**
    * Liefert alle Klassen, die als Gegenstück zu der unter Test stehenden Implementierung
    * unterstützt werden.

@@ -12,17 +12,17 @@ import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.OneToMany;
 
 /**
- * Die {@link OneToManyListContainsImpl} ist eine {@link List} basierte Implementierung einer
+ * Die {@link OneToManyJava7ListContainsImpl} ist eine {@link List} basierte Implementierung einer
  * {@link OneToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link OneToManyListImpl}, die verwendet werden kann,
+ * Dies ist eine vereinfachte Variante der {@link OneToManyJava7ListImpl}, die verwendet werden kann,
  * wenn keine {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
  *
  * @author uffmanna
  */
-public class OneToManyListContainsImpl implements OneToMany {
+public class OneToManyJava7ListContainsImpl implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override

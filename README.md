@@ -14,12 +14,12 @@ Dies sind die empfohlenen Implementierungen, die aktuell die beste Performance b
 [OneToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/onetoone/OneToOneJava7Impl.java)
 
 ## OneToMany
-[OneToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/onetomany/OneToManyListImpl.java)
+[OneToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/onetomany/OneToManyJava7ListImpl.java)
 
 ## ManyToOne
 [ManyToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytoone/ManyToOneJava7Impl.java)
 
 ## ManyToMany
-Auf der größeren Seite der Relation (In der Klasse, von der viele Instanzen erwartet werden) [ManyToManySetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManySetImpl.java) und auf der kleineren Seite der Relation (In der Klasse, von der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyListImpl.java)
+Auf der größeren Seite der Relation (In der Klasse, von der viele Instanzen erwartet werden) [ManyToManySetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7SetImpl.java) und auf der kleineren Seite der Relation (In der Klasse, von der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7ListImpl.java)
 
 [Lazy Instatiation]: https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/LazyInstatiation.java

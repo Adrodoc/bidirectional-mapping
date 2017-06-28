@@ -6,9 +6,9 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.adrodoc55.bidirectional.api.OneToMany;
 import de.adrodoc55.bidirectional.api.ParameterizedManyToOneTest;
-import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyListContainsImpl;
-import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyListImpl;
-import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManySetImpl;
+import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7ListContainsImpl;
+import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7ListImpl;
+import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7SetImpl;
 
 public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOneJava7Impl> {
   /**
@@ -20,9 +20,9 @@ public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOne
   @Parameters(name = "{0}")
   public static Iterable<Class<? extends OneToMany>> supportedInverseClasses() {
     return Arrays.asList(//
-        OneToManyListContainsImpl.class, //
-        OneToManyListImpl.class, //
-        OneToManySetImpl.class//
+        OneToManyJava7ListContainsImpl.class, //
+        OneToManyJava7ListImpl.class, //
+        OneToManyJava7SetImpl.class//
     );
   }
 }

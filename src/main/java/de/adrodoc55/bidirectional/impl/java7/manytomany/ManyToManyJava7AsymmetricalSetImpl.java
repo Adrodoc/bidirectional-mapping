@@ -15,10 +15,10 @@ import de.adrodoc55.bidirectional.identityhashset.IdentityHashSet;
 import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 
 /**
- * Die {@link ManyToManyAsymmetricalSetImpl} ist eine {@link Set} basierte Implementierung einer
+ * Die {@link ManyToManyJava7AsymmetricalSetImpl} ist eine {@link Set} basierte Implementierung einer
  * {@link ManyToMany} Relation.
  *
- * Dies ist eine vereinfachte Variante der {@link ManyToManySetImpl}, die verwendet werden kann,
+ * Dies ist eine vereinfachte Variante der {@link ManyToManyJava7SetImpl}, die verwendet werden kann,
  * wenn {@link LazyInstatiation} benötigt wird.
  * <p>
  * Diese Implementierung ist asymmetrisch, d.h. es können nicht beide Seiten einer Relation diese
@@ -28,13 +28,13 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  * unterstützt keine Selbstreferenzierung eines Objektes.
  * <p>
  * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
- * zur {@link ManyToManyListImpl} eingesetzt werden.
+ * zur {@link ManyToManyJava7ListImpl} eingesetzt werden.
  *
  * @author uffmanna
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
-public class ManyToManyAsymmetricalSetImpl implements ManyToMany {
+public class ManyToManyJava7AsymmetricalSetImpl implements ManyToMany {
   private Collection<ManyToMany> manys = new IdentityHashSet<>();
 
   @Override

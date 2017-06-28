@@ -2,34 +2,38 @@ package de.adrodoc55.bidirectional.impl.java7.manytomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
+import java.util.Set;
+
+import org.eclipse.persistence.annotations.Customizer;
 
 import de.adrodoc55.bidirectional.LazyInstatiation;
+import de.adrodoc55.bidirectional.RequiresIdentityHashSet;
 import de.adrodoc55.bidirectional.api.ManyToMany;
+import de.adrodoc55.bidirectional.identityhashset.IdentityHashSet;
+import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
 import de.adrodoc55.bidirectional.impl.java7.Superclass;
 
 /**
- * Die {@link ManyToManyListImpl} ist eine {@link List} basierte Implementierung einer
+ * Die {@link ManyToManyJava7SetImpl} ist eine {@link Set} basierte Implementierung einer
  * {@link ManyToMany} Relation.
  * <p>
- * Diese Implementierung ist zwar symmetrisch, d.h. beide Seiten einer Relation können diese
- * Implementierung theoretisch nutzen, in diesem Fall wird aber keine {@link LazyInstatiation}
- * unterstützt.
+ * Diese Implementierung ist symmetrisch, d.h. beide Seiten einer Relation können diese
+ * Implementierung nutzen.
  * <p>
  * Diese Implementierung ist reflexiv, d.h. diese Implementierung unterstützt Selbstreferenzierung
  * eines Objektes.
  * <p>
- * Diese Implementierung unterstützt {@link LazyInstatiation}, wenn nicht beide Seiten einer
- * Relation diese Implementierung nutzen.
+ * Diese Implementierung unterstützt selbst keine {@link LazyInstatiation}, kann aber als Gegenstück
+ * zur {@link ManyToManyJava7ListImpl} eingesetzt werden.
  *
  * @author uffmanna
  */
-@LazyInstatiation
-public class ManyToManyListImpl extends Superclass implements ManyToMany {
-  private Collection<ManyToMany> manys = new ArrayList<>();
+@RequiresIdentityHashSet
+@Customizer(LazyIdentityHashSetEnabler.class)
+public class ManyToManyJava7SetImpl extends Superclass implements ManyToMany {
+  private Collection<ManyToMany> manys = new IdentityHashSet<>();
 
   @Override
   public Collection<ManyToMany> getManys() {
@@ -39,12 +43,12 @@ public class ManyToManyListImpl extends Superclass implements ManyToMany {
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (many.getManys().contains(this))
+    if (manys.contains(many))
       return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.addMany(ManyToManyListImpl.this);
+        many.addMany(ManyToManyJava7SetImpl.this);
         manys.add(many);
       }
     });
@@ -54,12 +58,12 @@ public class ManyToManyListImpl extends Superclass implements ManyToMany {
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!many.getManys().contains(this))
+    if (!manys.contains(many))
       return false;
     runNonRecursive(new Runnable() {
       @Override
       public void run() {
-        many.removeMany(ManyToManyListImpl.this);
+        many.removeMany(ManyToManyJava7SetImpl.this);
         manys.remove(many);
       }
     });
