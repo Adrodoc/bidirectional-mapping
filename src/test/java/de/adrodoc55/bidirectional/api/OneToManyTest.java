@@ -6,16 +6,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import de.adrodoc55.bidirectional.api.ManyToOne;
-import de.adrodoc55.bidirectional.api.OneToMany;
-
 public abstract class OneToManyTest {
-  protected abstract OneToMany newUnderTest();
+  protected abstract OneToMany newUnderTest() throws Exception;
 
-  protected abstract ManyToOne newInverse();
+  protected abstract ManyToOne newInverse() throws Exception;
 
   @Test
-  public void test_addMany() {
+  public void test_addMany() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
     ManyToOne inverse = newInverse();
@@ -30,7 +27,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_addMany__Bereits_enthalten() {
+  public void test_addMany__Bereits_enthalten() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
     ManyToOne inverse = newInverse();
@@ -46,7 +43,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_addMany__Ersetzt() {
+  public void test_addMany__Ersetzt() throws Exception {
     // given:
     OneToMany underTest1 = newUnderTest();
     OneToMany underTest2 = newUnderTest();
@@ -64,7 +61,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_addMany__Mit_null() {
+  public void test_addMany__Mit_null() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
 
@@ -82,7 +79,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_removeMany() {
+  public void test_removeMany() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
     ManyToOne inverse = newInverse();
@@ -98,7 +95,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_removeMany__Nicht_enthalten() {
+  public void test_removeMany__Nicht_enthalten() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
     ManyToOne inverse = newInverse();
@@ -113,7 +110,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_removeMany__In_Anderem_enthalten() {
+  public void test_removeMany__In_Anderem_enthalten() throws Exception {
     // given:
     OneToMany underTest1 = newUnderTest();
     OneToMany underTest2 = newUnderTest();
@@ -131,7 +128,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_removeMany__Mit_null() {
+  public void test_removeMany__Mit_null() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
 
@@ -149,7 +146,7 @@ public abstract class OneToManyTest {
   }
 
   @Test
-  public void test_getManys__Liefert_unmodifiable_Collection() {
+  public void test_getManys__Liefert_unmodifiable_Collection() throws Exception {
     // given:
     OneToMany underTest = newUnderTest();
     ManyToOne inverse = newInverse();

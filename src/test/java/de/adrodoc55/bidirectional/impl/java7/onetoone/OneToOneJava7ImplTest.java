@@ -6,7 +6,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.adrodoc55.bidirectional.api.OneToOne;
 import de.adrodoc55.bidirectional.api.ParameterizedOneToOneTest;
-import de.adrodoc55.bidirectional.impl.java7.onetoone.OneToOneJava7Impl;
 
 public class OneToOneJava7ImplTest extends ParameterizedOneToOneTest<OneToOneJava7Impl> {
   /**

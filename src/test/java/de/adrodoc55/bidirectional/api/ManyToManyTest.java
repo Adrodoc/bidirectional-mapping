@@ -7,12 +7,10 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import de.adrodoc55.bidirectional.api.ManyToMany;
-
 public abstract class ManyToManyTest {
-  protected abstract ManyToMany newUnderTest();
+  protected abstract ManyToMany newUnderTest() throws Exception;
 
-  protected abstract ManyToMany newInverse();
+  protected abstract ManyToMany newInverse() throws Exception;
 
   /**
    * Liefert {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}.
@@ -24,7 +22,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_addMany() {
+  public void test_addMany() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse = newInverse();
@@ -39,7 +37,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_addMany__Bereits_enthalten() {
+  public void test_addMany__Bereits_enthalten() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse = newInverse();
@@ -55,7 +53,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_addMany__Fuegt_hinzu() {
+  public void test_addMany__Fuegt_hinzu() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse1 = newInverse();
@@ -73,7 +71,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_addMany__Mit_null() {
+  public void test_addMany__Mit_null() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
 
@@ -91,7 +89,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_addMany__Mit_sich_selbst() {
+  public void test_addMany__Mit_sich_selbst() throws Exception {
     assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:
@@ -106,7 +104,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_removeMany() {
+  public void test_removeMany() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse = newInverse();
@@ -122,7 +120,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_removeMany__Nicht_enthalten() {
+  public void test_removeMany__Nicht_enthalten() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse = newInverse();
@@ -137,7 +135,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_removeMany__In_Anderem_enthalten() {
+  public void test_removeMany__In_Anderem_enthalten() throws Exception {
     // given:
     ManyToMany underTest1 = newUnderTest();
     ManyToMany underTest2 = newUnderTest();
@@ -155,7 +153,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_removeMany__Mit_null() {
+  public void test_removeMany__Mit_null() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
 
@@ -173,7 +171,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_removeMany__Mit_sich_selbst() {
+  public void test_removeMany__Mit_sich_selbst() throws Exception {
     assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:
@@ -189,7 +187,7 @@ public abstract class ManyToManyTest {
   }
 
   @Test
-  public void test_getManys__Liefert_unmodifiable_Collection() {
+  public void test_getManys__Liefert_unmodifiable_Collection() throws Exception {
     // given:
     ManyToMany underTest = newUnderTest();
     ManyToMany inverse = newInverse();

@@ -26,9 +26,9 @@ import de.adrodoc55.bidirectional.api.OneToMany;
  * and remove from them. IndirectList defaults to this behavior. When Set to true, the collection
  * associated with this TransparentIndirection will be setup so as not to instantiate for adds and
  * removes. The weakness of this setting for an IndirectSet is that when the set is not
- * instantiated, if a duplicate element is added, it will not be detected until commit
- * time. </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten
- * keine {@link Set}s verwenden, da sonst ein {@link SessionEventListener} verwendet werden muss.
+ * instantiated, if a duplicate element is added, it will not be detected until commit time.
+ * </blockquote> Daher sollten Implementierungen die Lazy Instatiation unterstützen möchten keine
+ * {@link Set}s verwenden, da sonst ein {@link SessionEventListener} verwendet werden muss.
  * <p>
  * Damit eine Implementierung Lazy Instatiation von Eclipselink unterstützen kann, darf sie in den
  * add und remove Methoden folgende Methoden der {@link Collection} NICHT nutzen:

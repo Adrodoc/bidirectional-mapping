@@ -7,9 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 
-import de.adrodoc55.bidirectional.api.OneToOne;
-import de.adrodoc55.bidirectional.reflect.ReflectionUtils;
-
 @RunWith(Parameterized.class)
 public abstract class ParameterizedOneToOneTest<O extends OneToOne> extends OneToOneTest
     implements GenericTest<O> {
@@ -17,13 +14,13 @@ public abstract class ParameterizedOneToOneTest<O extends OneToOne> extends OneT
   public Class<? extends OneToOne> inverse;
 
   @Override
-  protected OneToOne newUnderTest() {
-    return ReflectionUtils.newInstance(getClassUnderTest());
+  protected OneToOne newUnderTest() throws Exception {
+    return getClassUnderTest().getConstructor().newInstance();
   }
 
   @Override
-  protected OneToOne newInverse() {
-    return ReflectionUtils.newInstance(inverse);
+  protected OneToOne newInverse() throws Exception {
+    return inverse.getConstructor().newInstance();
   }
 
   /**

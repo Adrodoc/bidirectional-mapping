@@ -6,10 +6,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.adrodoc55.bidirectional.api.ManyToMany;
 import de.adrodoc55.bidirectional.api.ParameterizedManyToManyTest;
-import de.adrodoc55.bidirectional.impl.java7.manytomany.ManyToManyAsymmetricalSetImpl;
-import de.adrodoc55.bidirectional.impl.java7.manytomany.ManyToManyListImpl;
-import de.adrodoc55.bidirectional.impl.java7.manytomany.ManyToManySetImpl;
-import de.adrodoc55.bidirectional.impl.java7.manytomany.ManyToManySymmetricalSetImpl;
 
 public class ManyToManySetImplTest extends ParameterizedManyToManyTest<ManyToManySetImpl> {
   /**

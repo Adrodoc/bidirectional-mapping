@@ -5,12 +5,10 @@ import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 
-import de.adrodoc55.bidirectional.api.OneToOne;
-
 public abstract class OneToOneTest {
-  protected abstract OneToOne newUnderTest();
+  protected abstract OneToOne newUnderTest() throws Exception;
 
-  protected abstract OneToOne newInverse();
+  protected abstract OneToOne newInverse() throws Exception;
 
   /**
    * Liefert {@code true} wenn die zu testende Implementierung reflexiv ist, sonst {@code false}.
@@ -22,7 +20,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne() {
+  public void test_setOne() throws Exception {
     // given:
     OneToOne underTest = newUnderTest();
     OneToOne inverse = newInverse();
@@ -37,7 +35,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Bereits_verbunden() {
+  public void test_setOne__Bereits_verbunden() throws Exception {
     // given:
     OneToOne underTest = newUnderTest();
     OneToOne inverse = newInverse();
@@ -53,7 +51,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Ersetzt() {
+  public void test_setOne__Ersetzt() throws Exception {
     // given:
     OneToOne underTest = newUnderTest();
     OneToOne inverse1 = newInverse();
@@ -71,7 +69,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Trennt() {
+  public void test_setOne__Trennt() throws Exception {
     // given:
     OneToOne underTest = newUnderTest();
     OneToOne inverse = newInverse();
@@ -87,7 +85,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Mit_null() {
+  public void test_setOne__Mit_null() throws Exception {
     // given:
     OneToOne underTest = newUnderTest();
 
@@ -100,7 +98,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Mit_sich_selbst() {
+  public void test_setOne__Mit_sich_selbst() throws Exception {
     assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:
@@ -115,7 +113,7 @@ public abstract class OneToOneTest {
   }
 
   @Test
-  public void test_setOne__Sich_selbst_entfernen() {
+  public void test_setOne__Sich_selbst_entfernen() throws Exception {
     assumeTrue(isReflexive() && newUnderTest().getClass().equals(newInverse().getClass()));
 
     // given:

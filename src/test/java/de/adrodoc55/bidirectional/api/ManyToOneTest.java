@@ -4,16 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import de.adrodoc55.bidirectional.api.ManyToOne;
-import de.adrodoc55.bidirectional.api.OneToMany;
-
 public abstract class ManyToOneTest {
-  protected abstract ManyToOne newUnderTest();
+  protected abstract ManyToOne newUnderTest() throws Exception;
 
-  protected abstract OneToMany newInverse();
+  protected abstract OneToMany newInverse() throws Exception;
 
   @Test
-  public void test_setOne() {
+  public void test_setOne() throws Exception {
     // given:
     ManyToOne underTest = newUnderTest();
     OneToMany inverse = newInverse();
@@ -28,7 +25,7 @@ public abstract class ManyToOneTest {
   }
 
   @Test
-  public void test_setOne__Bereits_verbunden() {
+  public void test_setOne__Bereits_verbunden() throws Exception {
     // given:
     ManyToOne underTest = newUnderTest();
     OneToMany inverse = newInverse();
@@ -44,7 +41,7 @@ public abstract class ManyToOneTest {
   }
 
   @Test
-  public void test_setOne__Ersetzt() {
+  public void test_setOne__Ersetzt() throws Exception {
     // given:
     ManyToOne underTest = newUnderTest();
     OneToMany inverse1 = newInverse();
@@ -62,7 +59,7 @@ public abstract class ManyToOneTest {
   }
 
   @Test
-  public void test_setOne__Trennt() {
+  public void test_setOne__Trennt() throws Exception {
     // given:
     ManyToOne underTest = newUnderTest();
     OneToMany inverse = newInverse();
@@ -78,7 +75,7 @@ public abstract class ManyToOneTest {
   }
 
   @Test
-  public void test_setOne__Mit_null() {
+  public void test_setOne__Mit_null() throws Exception {
     // given:
     ManyToOne underTest = newUnderTest();
 
