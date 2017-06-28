@@ -9,6 +9,7 @@ import de.adrodoc55.bidirectional.api.ParameterizedManyToOneTest;
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7LazyListImpl;
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7ListContainsImpl;
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7SetImpl;
+import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8LazyListImpl;
 import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8ListContainsImpl;
 
 public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOneJava7Impl> {
@@ -24,7 +25,8 @@ public class ManyToOneJava7ImplTest extends ParameterizedManyToOneTest<ManyToOne
         OneToManyJava7ListContainsImpl.class, //
         OneToManyJava7LazyListImpl.class, //
         OneToManyJava7SetImpl.class, //
-        OneToManyJava8ListContainsImpl.class //
+        OneToManyJava8ListContainsImpl.class, //
+        OneToManyJava8LazyListImpl.class //
     );
   }
 }

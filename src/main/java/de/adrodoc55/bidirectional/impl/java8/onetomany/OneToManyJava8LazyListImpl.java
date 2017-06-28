@@ -1,4 +1,4 @@
-package de.adrodoc55.bidirectional.impl.java7.onetomany;
+package de.adrodoc55.bidirectional.impl.java8.onetomany;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -11,23 +11,20 @@ import de.adrodoc55.bidirectional.LazyInstatiation;
 import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.OneToMany;
 import de.adrodoc55.bidirectional.impl.Superclass;
+import de.adrodoc55.bidirectional.rt.java8.onetomany.OneToManyJava8LazyList;
 
 /**
- * Die {@link OneToManyJava7ListContainsImpl} ist eine {@link List} basierte Implementierung einer
- * {@link OneToMany} Relation.
- *
- * Dies ist eine vereinfachte Variante der {@link OneToManyJava7LazyListImpl}, die verwendet werden
- * kann, wenn keine {@link LazyInstatiation} benötigt wird.
+ * Die {@link OneToManyJava8LazyListImpl} ist eine {@link List} basierte Implementierung einer
+ * {@link OneToMany} Relation mit Nutzung von Java 8 Features.
  * <p>
- * Diese Implementierung unterstützt keine {@link LazyInstatiation}.
+ * Diese Implementierung unterstützt {@link LazyInstatiation}.
  * <p>
  * Diese Implementierung unterstützt alle bekannten {@link ManyToOne} Implementierungen.
  *
  * @author Adrodoc55
  */
-public class OneToManyJava7ListContainsImpl //
-    extends Superclass // Eigentlich nicht notwendig, siehe OneToMany Javadoc
-    implements OneToMany {
+@LazyInstatiation
+public class OneToManyJava8LazyListImpl extends Superclass implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override
@@ -38,22 +35,12 @@ public class OneToManyJava7ListContainsImpl //
   @Override
   public boolean addMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) {
-      manys.add(many);
-      many.setOne(this);
-      return true;
-    }
-    return false;
+    return OneToManyJava8LazyList.addMany(this, many, many.getOne(), manys, ManyToOne::setOne);
   }
 
   @Override
   public boolean removeMany(ManyToOne many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) {
-      manys.remove(many);
-      many.setOne(null);
-      return true;
-    }
-    return false;
+    return OneToManyJava8LazyList.removeMany(this, many, many.getOne(), manys, ManyToOne::setOne);
   }
 }

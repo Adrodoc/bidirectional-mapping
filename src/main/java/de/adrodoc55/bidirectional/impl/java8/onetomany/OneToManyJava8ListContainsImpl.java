@@ -8,6 +8,7 @@ import java.util.List;
 import de.adrodoc55.bidirectional.LazyInstatiation;
 import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.OneToMany;
+import de.adrodoc55.bidirectional.impl.Superclass;
 import de.adrodoc55.bidirectional.rt.java8.onetomany.OneToManyJava8ListContains;
 
 /**
@@ -23,7 +24,7 @@ import de.adrodoc55.bidirectional.rt.java8.onetomany.OneToManyJava8ListContains;
  *
  * @author Adrodoc55
  */
-public class OneToManyJava8ListContainsImpl implements OneToMany {
+public class OneToManyJava8ListContainsImpl extends Superclass implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override

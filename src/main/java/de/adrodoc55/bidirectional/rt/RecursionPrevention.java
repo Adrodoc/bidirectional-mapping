@@ -1,6 +1,4 @@
-package de.adrodoc55.bidirectional.impl.java7;
-
-import javax.persistence.Transient;
+package de.adrodoc55.bidirectional.rt;
 
 /**
  * Die Methode {@link #runNonRecursive(Runnable)} wird von einigen Implementierungen benötigt, es
@@ -8,24 +6,12 @@ import javax.persistence.Transient;
  *
  * @author Adrodoc55
  */
-public abstract class Superclass {
-  @Transient
-  private boolean pendingRelation;
-
+public interface RecursionPrevention {
   /**
    * Führt das angegebene {@link Runnable} aus, falls es sich hierbei nicht um einen rekursiven
    * Aufruf handelt.
    *
    * @param runnable die auszuführende Aktion
    */
-  public void runNonRecursive(Runnable runnable) {
-    if (pendingRelation)
-      return;
-    try {
-      pendingRelation = true;
-      runnable.run();
-    } finally {
-      pendingRelation = false;
-    }
-  }
+  void runNonRecursive(Runnable runnable);
 }

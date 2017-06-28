@@ -14,6 +14,7 @@ import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.OneToMany;
 import de.adrodoc55.bidirectional.identityhashset.IdentityHashSet;
 import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
+import de.adrodoc55.bidirectional.impl.Superclass;
 
 /**
  * Die {@link OneToManyJava7SetImpl} ist eine {@link Set} basierte Implementierung einer
@@ -30,7 +31,9 @@ import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
  */
 @RequiresIdentityHashSet
 @Customizer(LazyIdentityHashSetEnabler.class)
-public class OneToManyJava7SetImpl implements OneToMany {
+public class OneToManyJava7SetImpl //
+    extends Superclass // Eigentlich nicht notwendig, siehe OneToMany Javadoc
+    implements OneToMany {
   private Collection<ManyToOne> manys = new IdentityHashSet<>();
 
   @Override

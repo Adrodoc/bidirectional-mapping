@@ -10,7 +10,7 @@ import java.util.List;
 import de.adrodoc55.bidirectional.LazyInstatiation;
 import de.adrodoc55.bidirectional.api.ManyToOne;
 import de.adrodoc55.bidirectional.api.OneToMany;
-import de.adrodoc55.bidirectional.impl.java7.Superclass;
+import de.adrodoc55.bidirectional.impl.Superclass;
 
 /**
  * Die {@link OneToManyJava7LazyListImpl} ist eine {@link List} basierte Implementierung einer

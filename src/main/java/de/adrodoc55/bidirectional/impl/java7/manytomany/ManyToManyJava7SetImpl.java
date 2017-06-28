@@ -13,7 +13,7 @@ import de.adrodoc55.bidirectional.RequiresIdentityHashSet;
 import de.adrodoc55.bidirectional.api.ManyToMany;
 import de.adrodoc55.bidirectional.identityhashset.IdentityHashSet;
 import de.adrodoc55.bidirectional.identityhashset.LazyIdentityHashSetEnabler;
-import de.adrodoc55.bidirectional.impl.java7.Superclass;
+import de.adrodoc55.bidirectional.impl.Superclass;
 
 /**
  * Die {@link ManyToManyJava7SetImpl} ist eine {@link Set} basierte Implementierung einer
