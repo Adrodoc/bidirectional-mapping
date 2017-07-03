@@ -11,6 +11,7 @@ import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7ListContain
 import de.adrodoc55.bidirectional.impl.java7.onetomany.OneToManyJava7SetImpl;
 import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8LazyListImpl;
 import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8ListContainsImpl;
+import de.adrodoc55.bidirectional.impl.java8.onetomany.OneToManyJava8SetImpl;
 
 public class ManyToOneJava8ImplTest extends ParameterizedManyToOneTest<ManyToOneJava8Impl> {
   /**
@@ -26,7 +27,8 @@ public class ManyToOneJava8ImplTest extends ParameterizedManyToOneTest<ManyToOne
         OneToManyJava7LazyListImpl.class, //
         OneToManyJava7SetImpl.class, //
         OneToManyJava8ListContainsImpl.class, //
-        OneToManyJava8LazyListImpl.class //
+        OneToManyJava8LazyListImpl.class, //
+        OneToManyJava8SetImpl.class //
     );
   }
 }

@@ -24,7 +24,9 @@ import de.adrodoc55.bidirectional.rt.java8.onetomany.OneToManyJava8ListContains;
  *
  * @author Adrodoc55
  */
-public class OneToManyJava8ListContainsImpl extends Superclass implements OneToMany {
+public class OneToManyJava8ListContainsImpl //
+    extends Superclass // Eigentlich nicht notwendig, siehe OneToMany Javadoc
+    implements OneToMany {
   private Collection<ManyToOne> manys = new ArrayList<>();
 
   @Override
