@@ -20,6 +20,6 @@ Dies sind die empfohlenen Implementierungen, die aktuell die beste Performance b
 [ManyToOneBasicImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytoone/ManyToOneJava7Impl.java)
 
 ## ManyToMany
-Auf der größeren Seite der Relation (In der Klasse, von der viele Instanzen erwartet werden) [ManyToManySetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7SetImpl.java) und auf der kleineren Seite der Relation (In der Klasse, von der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7LazyListImpl.java)
+Auf der größeren Seite der Relation (In der Klasse, von der viele Instanzen erwartet werden) [ManyToManyAsymmetricalSetImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7AsymmetricalSetImpl.java) und auf der kleineren Seite der Relation (In der Klasse, von der wenige Instanzen erwartet werden) [ManyToManyListImpl](https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/impl/java7/manytomany/ManyToManyJava7LazyListImpl.java)
 
 [Lazy Instatiation]: https://github.com/Adrodoc55/bidirectional-mapping/blob/master/src/main/java/de/adrodoc55/bidirectional/LazyInstatiation.java
