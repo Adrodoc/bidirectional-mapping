@@ -45,22 +45,16 @@ public class ManyToManyJava7AsymmetricalSetImpl implements ManyToMany {
   @Override
   public boolean addMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (!manys.contains(many)) {
-      many.addMany(this);
-      manys.add(many);
-      return true;
-    }
-    return false;
+    boolean result = many.addMany(this);
+    manys.add(many);
+    return result;
   }
 
   @Override
   public boolean removeMany(ManyToMany many) {
     checkNotNull(many, "many == null!");
-    if (manys.contains(many)) {
-      many.removeMany(this);
-      manys.remove(many);
-      return true;
-    }
-    return false;
+    boolean result = many.removeMany(this);
+    manys.remove(many);
+    return result;
   }
 }
